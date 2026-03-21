@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Re-register your business | business.gov.ki</title>
+<meta name="description" content="Re-register your business name or company on the Kiribati Online Business Registry. Free. Deadline: 31 March 2027.">
+<meta property="og:title" content="Re-register your business | business.gov.ki">
+<meta property="og:description" content="Kiribati has new business laws. Re-register for free before 31 March 2027.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://business.gov.ki/">
+<meta property="og:image" content="https://business.gov.ki/assets/preview-card.png">
+<link rel="stylesheet" href="styles.css">
+<script src="config.js"></script>
+<style>
+/* ═══ Page-specific (mini site only) ═══ */
+
+/* ── Path fork ── */
+.path-fork { margin-bottom: 28px; display: flex; flex-direction: column; gap: 8px; }
+.path-card {
+  width: 100%; text-align: left; font-family: var(--font);
+  background: var(--bg); border: 1.5px solid var(--border-light);
+  border-left: 5px solid var(--blue); border-radius: var(--radius);
+  padding: 14px 16px; cursor: pointer; min-height: 48px;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.path-card:hover, .path-card:focus-visible { border-color: var(--blue); background: var(--blue-light); }
+.path-card:active { background: var(--blue-light); }
+.path-card__title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+.path-card__sub { font-size: 13px; color: var(--text-light); line-height: 1.4; }
+/* Fast track — visually dominant */
+.path-card--fast {
+  background: var(--blue); border-color: var(--blue); border-left-color: #003d99;
+}
+.path-card--fast .path-card__title { color: #fff; font-weight: 700; }
+.path-card--fast .path-card__sub { color: rgba(255,255,255,0.85); }
+.path-card--fast:hover, .path-card--fast:focus-visible { background: #003d99; }
+.path-card--fast:active { background: #002d80; }
+
+/* ── Wizard ── */
+.wizard {
+  background: var(--bg); border: 1.5px solid var(--border-light);
+  border-top: 4px solid var(--blue);
+  border-radius: var(--radius); padding: 20px 16px; margin-bottom: 28px;
+}
+.wizard__header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+.wizard__title { font-size: 18px; font-weight: 750; color: var(--green-banner); margin: 0; }
+.wizard__about-link {
+  background: none; border: none; font-size: 12px; font-weight: 600;
+  color: var(--blue); cursor: pointer; text-decoration: underline;
+  text-underline-offset: 2px; font-family: var(--font);
+}
+.wq__label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-light); margin-bottom: 6px; }
+.wq__question { font-size: 16px; font-weight: 700; color: var(--text); line-height: 1.35; margin-bottom: 12px; }
+.wq__options { display: flex; flex-direction: column; gap: 6px; }
+.wq__options--row { flex-direction: row; gap: 8px; }
+
+/* Confirmed chip */
+.confirmed {
+  display: flex; align-items: center; justify-content: space-between;
+  background: var(--blue-light); border-radius: var(--radius);
+  padding: 10px 14px; margin-bottom: 10px; border-left: 4px solid var(--blue);
+}
+.confirmed__label { font-size: 11px; font-weight: 600; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.03em; }
+.confirmed__value { font-size: 14px; font-weight: 700; color: var(--blue); }
+.confirmed__change {
+  background: none; border: 1.5px solid var(--blue); border-radius: 4px;
+  padding: 6px 12px; font-size: 12px; font-weight: 700; color: var(--blue);
+  cursor: pointer; font-family: var(--font); min-height: 36px;
+}
+.confirmed__change:active { background: var(--blue-light); }
+
+/* Role guidance */
+.role-guidance { margin: 12px 0; border-radius: var(--radius); padding: 14px 16px; font-size: 14px; line-height: 1.55; }
+.role-guidance--owner { background: var(--green-light); border-left: 4px solid var(--green-dark); }
+.role-guidance--agent { background: var(--amber-bg); border-left: 4px solid var(--amber); }
+.role-guidance--none  { background: var(--red-light); border-left: 4px solid var(--red); }
+.role-guidance__title { font-weight: 700; margin-bottom: 4px; }
+.role-guidance--owner .role-guidance__title { color: var(--green-dark); }
+.role-guidance--agent .role-guidance__title { color: var(--amber); }
+.role-guidance--none  .role-guidance__title { color: var(--red); }
+
+/* Name inputs */
+.name-field { margin-bottom: 12px; }
+.name-field label { display: block; font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+.name-field input {
+  width: 100%; padding: 12px 14px; font-size: 15px; font-family: var(--font);
+  border: 2px solid var(--border-light); border-radius: var(--radius);
+  color: var(--text); background: var(--bg); outline: none;
+  transition: border-color 0.15s ease; box-sizing: border-box;
+}
+.name-field input:focus { outline: 3px solid var(--focus); outline-offset: 2px; border-color: var(--blue); }
+
+/* ── Timeline plan (agreed layout from plan-mobile-concept) ── */
+.plan { margin-bottom: 28px; }
+.plan__header { margin-bottom: 4px; }
+.plan__title { font-size: 22px; font-weight: 800; color: var(--green-banner); line-height: 1.15; margin-bottom: 4px; }
+.plan__meta { font-size: 13px; color: var(--text-light); margin-bottom: 20px; }
+.plan__meta strong { color: var(--text); }
+
+/* Prereqs */
+.prereqs { background: var(--bg-subtle, #f8f8f8); border-radius: 8px; padding: 14px 16px; margin-bottom: 28px; }
+.prereqs__title { font-size: 11px; font-weight: 700; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px; }
+.prereqs__list { list-style: none; padding: 0; margin: 0; }
+.prereqs__item { display: flex; align-items: center; gap: 10px; padding: 6px 0; font-size: 13px; color: var(--text); }
+.prereqs__icon { width: 20px; height: 20px; border-radius: 4px; border: 2px solid var(--blue); flex-shrink: 0; }
+
+.plan__section-label { font-size: 11px; font-weight: 700; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 14px; }
+
+/* Timeline rail */
+.tl { position: relative; padding-left: 40px; }
+.tl::before { content: ''; position: absolute; left: 15px; top: 0; bottom: 0; width: 2px; background: var(--border-light); }
+
+/* Step */
+.tl-step { position: relative; padding-bottom: 12px; }
+.tl-step:last-child { padding-bottom: 0; }
+.tl-step__node {
+  position: absolute; left: -40px; top: 0;
+  width: 30px; height: 30px; border-radius: 50%;
+  background: var(--blue); color: #fff; font-size: 13px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; z-index: 2;
+}
+.tl-step__title { font-size: 15px; font-weight: 700; color: var(--text); line-height: 1.3; padding-top: 4px; }
+.tl-step__needs { margin-top: 8px; display: flex; flex-direction: column; gap: 4px; }
+.tl-step__need { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--text); line-height: 1.35; }
+.tl-step__need-icon { color: var(--blue); flex-shrink: 0; font-weight: 700; font-size: 13px; margin-top: 1px; }
+.tl-step__cta {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  width: 100%; margin-top: 10px; padding: 11px 20px;
+  background: var(--blue); color: #fff; font-size: 14px; font-weight: 700;
+  border: none; border-radius: 8px; text-decoration: none;
+  min-height: 48px; cursor: pointer; font-family: var(--font);
+  transition: background 0.15s ease;
+}
+.tl-step__cta:hover { background: #003d99; }
+.tl-step__cta:active { background: #002d80; }
+
+/* Dimmed future steps */
+.tl-step--future .tl-step__node { background: #b0c4de; }
+.tl-step--future .tl-step__cta { background: #fff; color: var(--blue); border: 2px solid var(--blue); }
+.tl-step--future .tl-step__cta:hover { background: var(--blue-light); }
+
+/* Wait interstitial */
+.tl-wait { position: relative; padding: 16px 0 16px 40px; }
+.tl-wait::before {
+  content: ''; position: absolute; left: 14px; top: 0; bottom: 0;
+  width: 4px; border-left: 2px dashed var(--amber-border);
+  background: #fff; z-index: 1;
+}
+.tl-wait__pill {
+  position: relative; z-index: 2;
+  background: var(--amber-bg); border: 1.5px solid var(--amber-border); border-radius: 8px;
+  padding: 10px 14px; font-size: 13px; font-weight: 600; color: var(--amber); line-height: 1.35;
+}
+.tl-wait__pill-title { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: var(--amber); }
+.tl-wait__pill-title svg { flex-shrink: 0; }
+.tl-wait__pill-sub { font-size: 11px; font-weight: 500; color: var(--amber); opacity: 0.8; margin-top: 2px; padding-left: 22px; }
+
+/* Parallel tip */
+.tl-parallel { position: relative; padding: 12px 0 12px 40px; }
+.tl-parallel::before {
+  content: ''; position: absolute; left: 14px; top: 0; bottom: 0;
+  width: 4px; background: #fff; z-index: 1; border-left: 2px solid var(--border-light);
+}
+.tl-parallel__pill {
+  position: relative; z-index: 2;
+  background: var(--green-light); border-radius: 8px; padding: 10px 14px;
+  font-size: 13px; font-weight: 600; color: var(--green-dark); line-height: 1.35;
+  display: flex; align-items: center; gap: 8px;
+}
+.tl-parallel__pill svg { flex-shrink: 0; }
+
+/* BN warning */
+.bn-warning {
+  background: var(--amber-bg); border-left: 4px solid var(--amber);
+  border-radius: var(--radius); padding: 12px 14px; margin-top: 16px;
+  font-size: 14px; color: var(--amber); line-height: 1.5; font-weight: 600;
+}
+
+/* Free footnote */
+.free-note { text-align: center; padding: 24px 16px 8px; font-size: 13px; color: var(--green-dark); font-weight: 600; }
+.free-note span { font-weight: 400; color: var(--text-light); }
+
+/* ── Get your plan (merged download + email) ── */
+.get-plan {
+  background: var(--green-light); border-radius: 8px;
+  padding: 24px 20px; text-align: center; margin-bottom: 28px;
+}
+.get-plan__title { font-size: 16px; font-weight: 700; color: var(--green-dark); margin-bottom: 10px; }
+.get-plan__actions { display: flex; flex-direction: column; gap: 10px; max-width: 360px; margin: 0 auto; }
+.get-plan__download {
+  font-size: 15px; font-weight: 700; background: var(--green-dark); color: #fff;
+  border: none; border-radius: 8px; padding: 13px 20px; cursor: pointer;
+  min-height: 48px; display: flex; align-items: center; justify-content: center; gap: 8px;
+  font-family: var(--font); transition: background 0.15s ease; width: 100%;
+}
+.get-plan__download:hover { background: #0d4f42; }
+.get-plan__download:active { background: #0a3e35; }
+.get-plan__email-row {
+  display: flex; gap: 8px; width: 100%;
+}
+.get-plan__email-input {
+  flex: 1; padding: 11px 14px; font-size: 14px; font-family: var(--font);
+  border: 2px solid var(--border-light); border-radius: 8px;
+  color: var(--text); outline: none; box-sizing: border-box; min-width: 0;
+}
+.get-plan__email-input:focus { outline: 3px solid var(--focus); outline-offset: 2px; border-color: var(--blue); }
+.get-plan__email-btn {
+  font-size: 14px; font-weight: 700; background: var(--bg); color: var(--green-dark);
+  border: 2px solid var(--green-dark); border-radius: 8px; padding: 11px 18px;
+  cursor: pointer; font-family: var(--font); white-space: nowrap; min-height: 48px;
+  transition: background 0.15s ease;
+}
+.get-plan__email-btn:hover { background: var(--green-light); }
+.get-plan__email-btn:active { background: #d0ead3; }
+.get-plan__status { font-size: 13px; margin-top: 6px; }
+
+/* ── After section ── */
+.after-section {
+  background: var(--bg); border: 1.5px solid var(--border-light);
+  border-radius: var(--radius); padding: 16px; margin-bottom: 28px;
+}
+.after-section__title { font-size: 15px; font-weight: 700; color: var(--green-banner); margin-bottom: 8px; }
+.after-section__desc { font-size: 14px; color: var(--text-mid); line-height: 1.55; margin-bottom: 12px; }
+.after-link {
+  font-size: 14px; font-weight: 600; color: var(--blue); text-decoration: none;
+  padding: 8px 0; display: flex; align-items: center; gap: 6px;
+}
+
+/* Restart — text link, not button */
+.restart-row { text-align: center; margin-bottom: 28px; }
+.restart-link {
+  font-size: 14px; font-weight: 600; color: var(--text-light);
+  text-decoration: none; cursor: pointer; background: none; border: none;
+  font-family: var(--font); display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 0;
+}
+.restart-link:hover { color: var(--blue); }
+
+/* ── Utility ── */
+.hidden { display: none !important; }
+.fade-in { opacity: 0; transform: translateY(8px); animation: fadeIn 0.25s ease forwards; }
+@keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+
+/* ── Tap feedback for mobile ── */
+.option-btn:active { background: var(--blue-light) !important; border-color: var(--blue) !important; }
+
+@media print {
+  .site-header { position: static; }
+  .wizard, .path-fork, .restart-row, .get-plan { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER with MTCIC crest ═══ -->
+<header class="site-header" role="banner">
+  <div style="display:flex;align-items:center;padding:12px 16px;max-width:1200px;margin:0 auto;gap:12px">
+    <img src="assets/mtcic-crest.png" alt="MTCIC crest" width="40" height="40" style="border-radius:50%;background:rgba(255,255,255,0.12);object-fit:contain;flex-shrink:0">
+    <div>
+      <div style="color:var(--gold);font-size:19px;font-weight:700;line-height:1.1">business.gov.ki</div>
+      <div style="color:rgba(255,255,255,0.85);font-size:13px;font-weight:500;line-height:1.2;margin-top:1px">Online Business Registry</div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ MAIN ═══ -->
+<main id="main-content" style="max-width:640px;margin:0 auto;padding:20px 16px 0">
+
+  <h1 style="font-size:28px;font-weight:800;color:var(--green-banner);line-height:1.2;margin-bottom:12px">
+    Re-register your business name or company
+  </h1>
+  <p style="font-size:16px;color:var(--text);line-height:1.65;margin-bottom:24px">
+    Kiribati has a new Business Names Act and Companies Act. We are moving to a new Online Business Registry and need you to confirm your business details. Re-registration is free.
+  </p>
+
+  <!-- Time banner -->
+  <div id="time-banner" style="margin-bottom:24px" aria-live="polite"></div>
+
+  <!-- Section heading — lighter weight to subordinate to h1 -->
+  <h2 id="plan-heading" style="font-size:20px;font-weight:600;color:var(--text-mid);line-height:1.25;margin-bottom:14px">
+    Get your re-registration plan
+  </h2>
+
+  <!-- Path fork -->
+  <section id="path-fork" class="path-fork">
+    <button class="path-card" id="path-info" type="button">
+      <div class="path-card__title">I need to understand what re-registration is</div>
+      <div class="path-card__sub">Read about the process, deadline, and requirements first</div>
+    </button>
+    <button class="path-card path-card--fast" id="path-fast" type="button">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+        <div class="path-card__title">I know what I need to do — get started</div>
+        <span style="color:#fff;font-size:18px;font-weight:700;flex-shrink:0" aria-hidden="true">&rarr;</span>
+      </div>
+      <div class="path-card__sub">Go straight to your plan</div>
+    </button>
+  </section>
+
+  <!-- FAQ accordion -->
+  <section id="info-section" class="hidden" style="margin-bottom:28px">
+    <h2 style="font-size:18px;font-weight:700;color:var(--green-banner);margin-bottom:12px">What you need to know</h2>
+    <div id="faq-list" style="background:var(--bg);border:1.5px solid var(--border-light);border-radius:var(--radius);padding:0 16px"></div>
+  </section>
+
+  <!-- CTA from info → wizard -->
+  <div id="info-cta" class="hidden" style="border-top:1px solid var(--border-light);padding-top:20px;margin-bottom:28px">
+    <button id="info-start-btn" class="btn btn--confirm" style="width:100%;font-size:16px;padding:16px 20px;min-height:52px;display:flex;align-items:center;justify-content:center;gap:8px" type="button">
+      Get my re-registration plan <span aria-hidden="true">&rarr;</span>
+    </button>
+  </div>
+
+  <!-- Wizard -->
+  <section id="wizard-section" class="wizard hidden">
+    <div class="wizard__header">
+      <h2 class="wizard__title">Build your plan</h2>
+      <button id="wizard-about-btn" class="wizard__about-link" type="button">About re-registration</button>
+    </div>
+    <div id="wizard-steps"></div>
+  </section>
+
+  <!-- ═══ PERSONALISED PLAN (timeline layout) ═══ -->
+  <section id="plan-section" class="plan hidden" aria-live="polite">
+    <div class="plan__header">
+      <h2 id="plan-title" class="plan__title"></h2>
+      <div id="plan-meta" class="plan__meta"></div>
+    </div>
+
+    <!-- Prerequisites -->
+    <div id="plan-prereqs" class="prereqs">
+      <div class="prereqs__title">Before you begin — gather these</div>
+      <ul id="prereqs-list" class="prereqs__list"></ul>
+    </div>
+
+    <!-- Section label -->
+    <div id="plan-step-label" class="plan__section-label"></div>
+
+    <!-- Timeline -->
+    <div id="plan-timeline" class="tl"></div>
+
+    <!-- BN warning -->
+    <div id="plan-bn-warning" class="bn-warning hidden"></div>
+
+    <!-- Free footnote -->
+    <div class="free-note">Re-registration is free <span>· There is nothing to pay at any step</span></div>
+
+    <!-- Get your plan (merged download + email) -->
+    <div class="get-plan">
+      <div class="get-plan__title">Save or share your plan</div>
+      <div class="get-plan__actions">
+        <button id="download-btn" class="get-plan__download" type="button">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M9 2v10M9 12l-3.5-3.5M9 12l3.5-3.5M3 14h12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Save plan to your device
+        </button>
+        <div class="get-plan__email-row">
+          <input id="email-input" class="get-plan__email-input" type="email" placeholder="your@email.com" aria-label="Email address">
+          <button id="email-send-btn" class="get-plan__email-btn" type="button">Email me</button>
+        </div>
+        <div id="email-status" class="get-plan__status hidden"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- After re-registration -->
+  <section id="after-section" class="after-section hidden">
+    <h3 class="after-section__title">After you re-register</h3>
+    <p class="after-section__desc">Once re-registered, you will have ongoing responsibilities under the new laws, including keeping your information up to date and submitting an annual return every year.</p>
+    <div id="after-links"></div>
+  </section>
+
+  <!-- Restart — text link, not button -->
+  <div id="restart-row" class="restart-row hidden">
+    <button id="restart-btn" class="restart-link" type="button">
+      <span aria-hidden="true">&larr;</span> Start again for a different entity
+    </button>
+  </div>
+
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="site-footer" role="contentinfo">
+  <div style="max-width:640px;margin:0 auto;padding:24px 16px">
+    <div style="font-size:14px;font-weight:600;margin-bottom:6px;color:#ddd">Contact MTCIC</div>
+    <div id="footer-contact" style="font-size:13px;color:#bbb;line-height:1.6;margin-bottom:14px"></div>
+    <div style="border-top:1px solid #444;padding-top:14px;font-size:12px;color:#aaa;line-height:1.6">
+      <span id="footer-ministry"></span><br>
+      For official requirements, visit <a href="https://business.gov.ki" style="color:var(--gold);text-decoration:none;font-weight:600">business.gov.ki</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function() {
+  'use strict';
+  const C = window.CONFIG;
+
+  /* ── Helpers ── */
+  const $ = (sel, ctx) => (ctx || document).querySelector(sel);
+  const show = el => el.classList.remove('hidden');
+  const hide = el => el.classList.add('hidden');
+
+  function smoothScroll(id) {
+    const t = document.getElementById(id);
+    if (!t) return;
+    const top = t.getBoundingClientRect().top + window.scrollY - 82;
+    window.scrollTo({ top, behavior: 'smooth' });
+  }
+
+  const CLOCK_SVG = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#92400e" stroke-width="1.5"/><path d="M8 4v4.5l3 1.5" stroke="#92400e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const PLUS_SVG = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8h12M8 2v12" stroke="#146151" stroke-width="2" stroke-linecap="round"/></svg>';
+
+  /* ═══════════════════════════
+     TIME BANNER
+     ═══════════════════════════ */
+  function renderTimeBanner() {
+    const el = $('#time-banner');
+    const days = C.daysUntilDeadline();
+    const urg = C.urgency();
+    const msg = C.urgencyMessage();
+    const pct = C.deadlineProgress();
+
+    const palette = {
+      calm:     { fg: C.tokens.greenDark, bg: C.tokens.bg,       bdr: C.tokens.greenDark },
+      alert:    { fg: C.tokens.amber,     bg: C.tokens.amberBg,  bdr: C.tokens.amberBorder },
+      urgent:   { fg: C.tokens.red,       bg: C.tokens.redLight, bdr: C.tokens.red },
+      critical: { fg: C.tokens.red,       bg: C.tokens.redLight, bdr: C.tokens.red },
+    }[urg];
+
+    el.style.cssText = `border:2px solid ${palette.bdr};border-left:5px solid ${palette.bdr};border-radius:var(--radius);padding:16px;background:${urg === 'calm' ? 'var(--bg)' : palette.bg}`;
+    el.innerHTML = `
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" style="flex-shrink:0">
+          <circle cx="11" cy="11" r="10" stroke="${palette.fg}" stroke-width="1.8"/>
+          <path d="M11 5v6.5l4 2" stroke="${palette.fg}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <span style="font-size:24px;font-weight:800;color:${palette.fg};line-height:1">${Math.max(0, days)}</span>
+          <span style="font-size:13px;font-weight:600;color:${palette.fg};margin-left:6px">days until deadline</span>
+        </div>
+      </div>
+      <div style="height:4px;background:var(--border-gray);border-radius:2px;margin-bottom:10px;overflow:hidden">
+        <div style="height:100%;width:${pct}%;background:${palette.fg};border-radius:2px;transition:width 0.5s ease"></div>
+      </div>
+      <div style="font-size:14px;line-height:1.5;color:var(--text)">${msg}</div>
+      <div style="font-size:12px;color:var(--text-light);margin-top:4px">Deadline: ${C.programme.deadlineLabel} · Recommended submission by ${C.programme.recommendedSubmissionLabel}</div>`;
+  }
+
+  /* ═══════════════════════════
+     FAQ
+     ═══════════════════════════ */
+  function renderFAQ() {
+    const list = $('#faq-list');
+    C.keyMessages.forEach((m, idx) => {
+      const isLast = idx === C.keyMessages.length - 1;
+      const item = document.createElement('div');
+      item.style.borderBottom = isLast ? 'none' : '1px solid var(--border-gray)';
+
+      item.innerHTML = `
+        <button type="button" aria-expanded="false" style="width:100%;text-align:left;background:none;border:none;padding:16px 0;cursor:pointer;font-family:var(--font);display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:48px">
+          <span style="font-size:15px;font-weight:600;color:var(--text)">${m.q}</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="flex-shrink:0;transition:transform 0.2s ease"><path d="M4 6l4 4 4-4" stroke="var(--text-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div style="max-height:0;overflow:hidden;transition:max-height 0.2s ease">
+          <div style="font-size:14px;color:var(--text-light);line-height:1.6;padding-bottom:16px">${m.a}</div>
+        </div>`;
+
+      const btn = item.querySelector('button');
+      const body = item.querySelector('div > div:last-child')?.parentElement;
+      const svg = item.querySelector('svg');
+      if (body) {
+        btn.addEventListener('click', () => {
+          const open = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!open));
+          svg.style.transform = open ? '' : 'rotate(180deg)';
+          body.style.maxHeight = open ? '0' : body.scrollHeight + 16 + 'px';
+        });
+      }
+      list.appendChild(item);
+    });
+  }
+
+  /* ═══════════════════════════
+     WIZARD STATE
+     ═══════════════════════════ */
+  const S = { entity: null, hasAccount: null, hasBN: null, role: null, personName: '', entityName: '', namesSubmitted: false };
+
+  function entObj() { return S.entity ? C.entities[S.entity] : null; }
+  function entWord() { return S.entity === 'bn' ? 'business name' : 'company'; }
+  function needsBN() { return S.entity === 'co' || S.entity === 'overseas'; }
+  function ownerTerm() { return entObj()?.ownerTerm || 'owner'; }
+
+  function resetFrom(step) {
+    if (step <= 1) Object.assign(S, { entity: null, hasAccount: null, hasBN: null, role: null, namesSubmitted: false, personName: '', entityName: '' });
+    else if (step <= 2) Object.assign(S, { hasAccount: null, hasBN: null, role: null, namesSubmitted: false, personName: '', entityName: '' });
+    else if (step <= 3) Object.assign(S, { hasBN: null, role: null, namesSubmitted: false, personName: '', entityName: '' });
+    else if (step <= 4) Object.assign(S, { role: null, namesSubmitted: false, personName: '', entityName: '' });
+    else S.namesSubmitted = false;
+    renderWizard();
+    hideResults();
+  }
+
+  function hideResults() {
+    hide($('#plan-section'));
+    hide($('#after-section'));
+    hide($('#restart-row'));
+    // Restore generic heading
+    $('#plan-heading').textContent = 'Get your re-registration plan';
+    $('#plan-heading').style.cssText = 'font-size:20px;font-weight:600;color:var(--text-mid);line-height:1.25;margin-bottom:14px';
+  }
+
+  /* ── Wizard helpers ── */
+  function makeConfirmed(label, value, resetStep) {
+    const d = document.createElement('div');
+    d.className = 'confirmed';
+    d.innerHTML = `<div><div class="confirmed__label">${label}</div><div class="confirmed__value">${value}</div></div>`;
+    const btn = document.createElement('button');
+    btn.className = 'confirmed__change'; btn.type = 'button'; btn.textContent = 'Change';
+    btn.addEventListener('click', () => resetFrom(resetStep));
+    d.appendChild(btn);
+    return d;
+  }
+
+  function makeOptionBtn(html, onClick) {
+    const btn = document.createElement('button');
+    btn.className = 'option-btn'; btn.type = 'button';
+    btn.innerHTML = html;
+    btn.addEventListener('click', onClick);
+    return btn;
+  }
+
+  function renderWizard() {
+    const c = $('#wizard-steps');
+    c.innerHTML = '';
+
+    // Q1: Entity type
+    if (S.entity) {
+      c.appendChild(makeConfirmed('Entity type', `${entObj().label} (Form ${entObj().form})`, 1));
+    } else {
+      const w = document.createElement('div'); w.className = 'fade-in';
+      w.innerHTML = '<div class="wq__label">Question 1</div><h3 class="wq__question">What are you re-registering?</h3>';
+      const opts = document.createElement('div'); opts.className = 'wq__options';
+      Object.values(C.entities).forEach(e => {
+        opts.appendChild(makeOptionBtn(
+          `<div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:15px;font-weight:700;color:var(--text)">${e.label}</span><span style="font-size:12px;font-weight:600;color:var(--text-light)">Form ${e.form}</span></div><div style="font-size:13px;color:var(--text-light);margin-top:2px;line-height:1.4">${e.description}</div>`,
+          () => { S.entity = e.id; renderWizard(); setTimeout(() => smoothScroll('ws2'), 120); }
+        ));
+      });
+      w.appendChild(opts); c.appendChild(w);
+      return;
+    }
+
+    // Q2: Has account?
+    if (S.hasAccount !== null) {
+      c.appendChild(makeConfirmed('Online account', S.hasAccount ? 'Yes, I have one' : 'No, I need to create one', 2));
+    } else {
+      const w = document.createElement('div'); w.className = 'fade-in'; w.id = 'ws2';
+      w.innerHTML = '<div class="wq__label">Question 2</div><h3 class="wq__question">Do you have an account for the Online Business Registry?</h3>';
+      const opts = document.createElement('div'); opts.className = 'wq__options wq__options--row';
+      [{v:true,l:'Yes'},{v:false,l:'No'}].forEach(o => {
+        opts.appendChild(makeOptionBtn(`<div style="text-align:center;font-size:15px;font-weight:700;color:var(--text)">${o.l}</div>`,
+          () => { S.hasAccount = o.v; renderWizard(); setTimeout(() => smoothScroll(needsBN() ? 'ws3' : 'ws4'), 120); }));
+      });
+      w.appendChild(opts); c.appendChild(w);
+      return;
+    }
+
+    // Q3: Has BN? (co/overseas only)
+    if (needsBN()) {
+      if (S.hasBN !== null) {
+        c.appendChild(makeConfirmed('Also has business name', S.hasBN ? 'Yes' : 'No', 3));
+      } else {
+        const w = document.createElement('div'); w.className = 'fade-in'; w.id = 'ws3';
+        w.innerHTML = '<div class="wq__label">Question 3</div><h3 class="wq__question">Does your company also operate under a registered business name?</h3>';
+        const opts = document.createElement('div'); opts.className = 'wq__options wq__options--row';
+        [{v:true,l:'Yes'},{v:false,l:'No'}].forEach(o => {
+          opts.appendChild(makeOptionBtn(`<div style="text-align:center;font-size:15px;font-weight:700;color:var(--text)">${o.l}</div>`,
+            () => { S.hasBN = o.v; renderWizard(); setTimeout(() => smoothScroll('ws4'), 120); }));
+        });
+        w.appendChild(opts); c.appendChild(w);
+        return;
+      }
+    }
+
+    // Q4: Role
+    const qnRole = needsBN() ? 4 : 3;
+    if (S.role) {
+      const roleLabel = C.roles[S.entity].find(r => r.id === S.role)?.label;
+      c.appendChild(makeConfirmed('Your connection', roleLabel, 4));
+      // Role guidance
+      const g = document.createElement('div');
+      if (S.role === 'owner') g.innerHTML = `<div class="role-guidance role-guidance--owner"><div class="role-guidance__title">You are the right person to start this process</div><div>You will need your government-issued photo ID. Once verified, you can grant access to anyone else who needs to act on behalf of this ${entWord()}.</div></div>`;
+      else if (S.role === 'agent') g.innerHTML = `<div class="role-guidance role-guidance--agent"><div class="role-guidance__title">Additional evidence required</div><div>You will need your photo ID plus a letter of authority from the ${ownerTerm()}. This path takes longer and may be sent back for revision. Where possible, the ${ownerTerm()} should start this process instead.</div></div>`;
+      else { g.innerHTML = `<div class="role-guidance role-guidance--none"><div class="role-guidance__title">You cannot start this process</div><div>Only ${S.entity === 'bn' ? 'owners' : 'directors'}, employees, or authorised agents can verify their connection to a ${entWord()}. Find someone who holds one of those roles.</div></div>`; c.appendChild(g); return; }
+      c.appendChild(g);
+    } else {
+      const w = document.createElement('div'); w.className = 'fade-in'; w.id = 'ws4';
+      w.innerHTML = `<div class="wq__label">Question ${qnRole}</div><h3 class="wq__question">What is your connection to this ${entWord()}?</h3>`;
+      const opts = document.createElement('div'); opts.className = 'wq__options';
+      C.roles[S.entity].forEach(r => {
+        const badge = r.recommended ? '<span style="font-size:10px;font-weight:700;color:var(--green-dark);background:var(--green-light);padding:2px 8px;border-radius:4px;text-transform:uppercase;letter-spacing:0.04em;margin-left:8px">Recommended</span>' : '';
+        opts.appendChild(makeOptionBtn(`<span style="font-size:14px;color:var(--text)">${r.label}${badge}</span>`,
+          () => { S.role = r.id; renderWizard(); if (r.id !== 'none') setTimeout(() => smoothScroll('ws5'), 120); }));
+      });
+      const hint = document.createElement('div');
+      hint.style.cssText = 'margin-top:12px;font-size:13px;color:var(--text-light);line-height:1.55;background:var(--border-gray);border-radius:var(--radius);padding:10px 14px';
+      hint.textContent = `Before you can re-register, MTCIC needs to confirm you are connected to this ${entWord()}. This stops anyone else from making changes to your ${entWord()} without your knowledge.`;
+      opts.appendChild(hint);
+      w.appendChild(opts); c.appendChild(w);
+      return;
+    }
+
+    // Q5: Names
+    const qnNames = needsBN() ? 5 : 4;
+    if (!S.namesSubmitted) {
+      const w = document.createElement('div'); w.className = 'fade-in'; w.id = 'ws5';
+      w.innerHTML = `<div class="wq__label">Question ${qnNames}</div><h3 class="wq__question">Add your details to your plan (optional)</h3>
+        <div class="name-field"><label for="pn-input">Your full name</label><input id="pn-input" type="text" placeholder="e.g. Teramira Tabai" value="${S.personName}"></div>
+        <div class="name-field"><label for="en-input">${S.entity === 'bn' ? 'Your business name' : 'Your company name'}</label><input id="en-input" type="text" placeholder="${S.entity === 'bn' ? 'e.g. Tarawa Fresh Fish' : 'e.g. Pacific Holdings Ltd'}" value="${S.entityName}"></div>
+        <div style="display:flex;gap:8px;margin-top:4px"><button id="names-go" class="btn btn--primary" type="button" style="flex:1;font-size:15px;padding:12px 16px;min-height:48px">${S.personName.trim() || S.entityName.trim() ? 'Continue' : 'Skip'}</button></div>
+        <div style="font-size:13px;color:var(--text);line-height:1.5;margin-top:10px">This is optional. These details will appear on your plan to make it personal to you. <span style="color:var(--text-light)">This information is not stored or sent anywhere.</span></div>`;
+      c.appendChild(w);
+      setTimeout(() => {
+        const pn = $('#pn-input'), en = $('#en-input'), go = $('#names-go');
+        if (pn) pn.addEventListener('input', e => S.personName = e.target.value);
+        if (en) en.addEventListener('input', e => S.entityName = e.target.value);
+        const updateLabel = () => { if (go) go.textContent = (pn?.value.trim() || en?.value.trim()) ? 'Continue' : 'Skip'; };
+        if (pn) pn.addEventListener('input', updateLabel);
+        if (en) en.addEventListener('input', updateLabel);
+        if (go) go.addEventListener('click', () => { S.namesSubmitted = true; renderWizard(); onWizardComplete(); });
+      }, 10);
+      return;
+    }
+    if (S.personName.trim() || S.entityName.trim()) {
+      c.appendChild(makeConfirmed('Your details', [S.personName.trim(), S.entityName.trim()].filter(Boolean).join(' · '), 5));
+    }
+  }
+
+  /* ═══════════════════════════
+     TIMELINE PLAN
+     ═══════════════════════════ */
+  function getSteps() {
+    const e = entObj();
+    const ent = S.entityName.trim() || `your ${entWord()}`;
+    const pName = S.personName.trim();
+    const idFor = pName ? `Photo ID for ${pName}` : 'Your photo ID';
+    const own = ownerTerm();
+    const proofNeeds = S.role === 'owner' ? [idFor] : [idFor, `Letter of authority from the ${own}`];
+
+    const steps = [];
+    if (!S.hasAccount) steps.push({
+      title: 'Create an online account',
+      needs: ['Email address', idFor],
+      cta: { label: 'Create your account', url: C.registry.createAccount },
+    });
+    steps.push({
+      title: `Connect your account to ${ent}`,
+      needs: ['Approved account', ...proofNeeds],
+      cta: { label: 'Log in to the registry', url: C.registry.login },
+    });
+    steps.push({
+      title: `Complete form ${e.form}`,
+      needs: [`Business details for ${ent}`],
+      cta: { label: `Fill in ${e.form} online`, url: e.formBuilder },
+      parallel: true,
+    });
+    steps.push({
+      title: 'Upload and submit your form',
+      needs: ['Connected account', `Completed ${e.form} saved as PDF`],
+      cta: { label: 'Log in to submit', url: C.registry.login },
+    });
+    return steps;
+  }
+
+  function renderPlan() {
+    const e = entObj();
+    const ent = S.entityName.trim();
+    const pName = S.personName.trim();
+    const steps = getSteps();
+
+    // Update page heading to personalised title
+    const heading = $('#plan-heading');
+    heading.textContent = ent ? `Your plan for ${ent}` : 'Your re-registration plan';
+    heading.style.cssText = 'font-size:22px;font-weight:800;color:var(--green-banner);line-height:1.15;margin-bottom:4px';
+
+    // Plan meta
+    const metaParts = [e.label, `Form ${e.form}`, 'Free'];
+    if (pName) metaParts.push(`Prepared for ${pName}`);
+    $('#plan-meta').innerHTML = metaParts.join(' · ');
+
+    // Prerequisites
+    const prereqList = $('#prereqs-list');
+    prereqList.innerHTML = '';
+    const prereqs = ['Email address you can access', 'Government-issued photo ID'];
+    if (ent) prereqs.push(`Details for ${ent} (owners, addresses, activities)`);
+    else prereqs.push(`Details for your ${entWord()} (owners, addresses, activities)`);
+    prereqs.forEach(p => { prereqList.innerHTML += `<li class="prereqs__item"><div class="prereqs__icon"></div> ${p}</li>`; });
+
+    // Step label
+    $('#plan-step-label').textContent = `Your ${steps.length} steps`;
+
+    // Timeline
+    const tl = $('#plan-timeline');
+    tl.innerHTML = '';
+
+    // Define waits between steps
+    const waits = {};
+    if (!S.hasAccount) { waits[0] = { title: `Wait ${C.waitTimes.accountApproval}`, sub: 'MTCIC will email you when your account is approved' }; waits[1] = { title: `Wait ${C.waitTimes.authorityApproval}`, sub: 'MTCIC will email you when your connection is approved' }; }
+    else { waits[0] = { title: `Wait ${C.waitTimes.authorityApproval}`, sub: 'MTCIC will email you when your connection is approved' }; }
+
+    steps.forEach((step, i) => {
+      // Step
+      const div = document.createElement('div');
+      div.className = 'tl-step' + (i > 0 ? ' tl-step--future' : '');
+      let needsHtml = '';
+      step.needs.forEach(n => { needsHtml += `<div class="tl-step__need"><span class="tl-step__need-icon">\u203a</span> ${n}</div>`; });
+      div.innerHTML = `
+        <div class="tl-step__node">${i + 1}</div>
+        <div class="tl-step__title">${step.title}</div>
+        <div class="tl-step__needs">${needsHtml}</div>
+        <a class="tl-step__cta" href="${step.cta.url}" target="_blank" rel="noopener noreferrer">${step.cta.label} &rarr;</a>`;
+      tl.appendChild(div);
+
+      // Wait interstitial after this step?
+      if (waits[i]) {
+        const w = document.createElement('div'); w.className = 'tl-wait';
+        w.innerHTML = `<div class="tl-wait__pill"><div class="tl-wait__pill-title">${CLOCK_SVG} ${waits[i].title}</div><div class="tl-wait__pill-sub">${waits[i].sub}</div></div>`;
+        tl.appendChild(w);
+
+        // Parallel tip after the second wait (before the form step)
+        const nextStep = steps[i + 1];
+        if (nextStep && nextStep.parallel) {
+          const p = document.createElement('div'); p.className = 'tl-parallel';
+          p.innerHTML = `<div class="tl-parallel__pill">${PLUS_SVG} While you wait — start step ${i + 2} now</div>`;
+          tl.appendChild(p);
+        }
+      }
+    });
+
+    // BN warning
+    const bnWarn = $('#plan-bn-warning');
+    if (S.hasBN) { bnWarn.textContent = 'You also need to re-register your business name. Complete your company re-registration first, then repeat the process using form BN-0.'; show(bnWarn); }
+    else hide(bnWarn);
+
+    show($('#plan-section'));
+  }
+
+  /* ═══════════════════════════
+     WIZARD COMPLETE
+     ═══════════════════════════ */
+  function onWizardComplete() {
+    if (S.role === 'none') return;
+    renderPlan();
+
+    // After section
+    const links = $('#after-links');
+    links.innerHTML = '';
+    if (S.entity === 'bn') links.innerHTML += '<a class="after-link" href="https://business.gov.ki/public/help.aspx?cn=AboutBusinessName" target="_blank" rel="noopener noreferrer">Learn about your responsibilities as a business name owner &rarr;</a>';
+    if (S.entity === 'co' || S.entity === 'overseas') links.innerHTML += '<a class="after-link" href="https://business.gov.ki/public/help.aspx?cn=AboutCompanies" target="_blank" rel="noopener noreferrer">Learn about your responsibilities as a company &rarr;</a>';
+    links.innerHTML += '<a class="after-link" href="https://business.gov.ki/public/howto.aspx?cn=FileAnnualReturn&ctk=CompanyHowTo" target="_blank" rel="noopener noreferrer">How to submit your annual return &rarr;</a>';
+    show($('#after-section'));
+    show($('#restart-row'));
+
+    setTimeout(() => smoothScroll('plan-section'), 200);
+  }
+
+  /* ═══════════════════════════
+     GENERATE EMAIL-SAFE HTML PLAN
+     ═══════════════════════════ */
+  function generatePlanHTML() {
+    const e = entObj();
+    const ent = S.entityName.trim();
+    const pName = S.personName.trim();
+    const steps = getSteps();
+    const days = C.daysUntilDeadline();
+
+    // Waits map (same logic as renderPlan)
+    const waits = {};
+    if (!S.hasAccount) {
+      waits[0] = { title: `Wait ${C.waitTimes.accountApproval}`, sub: 'MTCIC will email you when your account is approved' };
+      waits[1] = { title: `Wait ${C.waitTimes.authorityApproval}`, sub: 'MTCIC will email you when your connection is approved' };
+    } else {
+      waits[0] = { title: `Wait ${C.waitTimes.authorityApproval}`, sub: 'MTCIC will email you when your connection is approved' };
+    }
+
+    // Prerequisites
+    const prereqs = ['Email address you can access', 'Government-issued photo ID'];
+    if (ent) prereqs.push(`Details for ${ent} (owners, addresses, activities)`);
+    else prereqs.push(`Details for your ${entWord()} (owners, addresses, activities)`);
+
+    const title = ent ? `Your plan for ${ent}` : 'Your re-registration plan';
+    const metaParts = [e.label, `Form ${e.form}`, 'Free'];
+    if (pName) metaParts.push(`Prepared for ${pName}`);
+
+    // Inline colour constants (no CSS variables in email)
+    const TEAL = '#146151';
+    const BLUE = '#0052cc';
+    const AMBER = '#92400e';
+    const GOLD = '#FFE066';
+    const TEXT = '#222';
+    const TEXT_LIGHT = '#666';
+    const BORDER = '#ddd';
+    const GREEN_LIGHT = '#e8f5e9';
+    const AMBER_BG = '#fffbeb';
+    const AMBER_BORDER = '#fde68a';
+    const BG = '#ffffff';
+
+    // Build step rows
+    let stepsHTML = '';
+    steps.forEach((step, i) => {
+      const nodeColor = i === 0 ? BLUE : '#b0c4de';
+      const btnBg = i === 0 ? BLUE : BG;
+      const btnColor = i === 0 ? '#ffffff' : BLUE;
+      const btnBorder = i === 0 ? 'none' : `2px solid ${BLUE}`;
+
+      let needsHTML = '';
+      step.needs.forEach(n => {
+        needsHTML += `<tr><td style="padding:2px 8px 2px 0;color:${BLUE};font-weight:700;font-size:13px;vertical-align:top;width:14px">\u203a</td><td style="font-size:13px;color:${TEXT};line-height:1.35;padding:2px 0">${n}</td></tr>`;
+      });
+
+      stepsHTML += `
+        <tr><td style="width:40px;vertical-align:top;padding-top:0;text-align:center">
+          <div style="width:30px;height:30px;border-radius:50%;background:${nodeColor};color:#fff;font-size:13px;font-weight:700;line-height:30px;text-align:center;margin:0 auto">${i + 1}</div>
+        </td><td style="padding:0 0 16px 8px">
+          <div style="font-size:15px;font-weight:700;color:${TEXT};line-height:1.3;padding-top:4px">${step.title}</div>
+          <table style="margin-top:6px;border-collapse:collapse">${needsHTML}</table>
+          <a href="${step.cta.url}" target="_blank" style="display:block;margin-top:10px;padding:11px 20px;background:${btnBg};color:${btnColor};border:${btnBorder};border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;text-align:center">${step.cta.label} &rarr;</a>
+        </td></tr>`;
+
+      // Wait interstitial
+      if (waits[i]) {
+        stepsHTML += `
+          <tr><td style="width:40px;text-align:center;vertical-align:middle"><div style="width:2px;border-left:2px dashed ${AMBER_BORDER};height:20px;margin:0 auto"></div></td>
+          <td style="padding:8px 0 8px 8px">
+            <div style="background:${AMBER_BG};border:1.5px solid ${AMBER_BORDER};border-radius:8px;padding:10px 14px">
+              <div style="font-size:13px;font-weight:700;color:${AMBER}">${waits[i].title}</div>
+              <div style="font-size:11px;color:${AMBER};opacity:0.8;margin-top:2px">${waits[i].sub}</div>
+            </div>
+          </td></tr>`;
+
+        // Parallel tip
+        const nextStep = steps[i + 1];
+        if (nextStep && nextStep.parallel) {
+          stepsHTML += `
+            <tr><td style="width:40px;text-align:center"><div style="width:2px;border-left:2px solid ${BORDER};height:12px;margin:0 auto"></div></td>
+            <td style="padding:4px 0 4px 8px">
+              <div style="background:${GREEN_LIGHT};border-radius:8px;padding:10px 14px;font-size:13px;font-weight:600;color:${TEAL}">While you wait &mdash; start step ${i + 2} now</div>
+            </td></tr>`;
+        }
+      }
+    });
+
+    // BN warning
+    let bnWarnHTML = '';
+    if (S.hasBN) {
+      bnWarnHTML = `<div style="background:${AMBER_BG};border-left:4px solid ${AMBER};border-radius:6px;padding:12px 14px;margin-top:16px;font-size:14px;color:${AMBER};line-height:1.5;font-weight:600">You also need to re-register your business name. Complete your company re-registration first, then repeat the process using form BN-0.</div>`;
+    }
+
+    return `<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>${title}</title></head>
+<body style="margin:0;padding:0;background:#f4f4f4;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#f4f4f4"><tr><td align="center" style="padding:24px 12px">
+<table width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;background:${BG};border-radius:8px;overflow:hidden">
+
+  <!-- Header -->
+  <tr><td style="background:${TEAL};padding:16px 20px;border-bottom:4px solid #002a2b">
+    <table cellpadding="0" cellspacing="0"><tr>
+      <td style="padding-right:12px"><div style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.12);text-align:center;line-height:36px;font-size:18px;font-weight:700;color:${GOLD}">Ki</div></td>
+      <td><div style="color:${GOLD};font-size:18px;font-weight:700;line-height:1.1">business.gov.ki</div><div style="color:rgba(255,255,255,0.85);font-size:12px;margin-top:1px">Online Business Registry</div></td>
+    </tr></table>
+  </td></tr>
+
+  <!-- Title -->
+  <tr><td style="padding:24px 20px 4px">
+    <h1 style="margin:0;font-size:22px;font-weight:800;color:${TEAL};line-height:1.15">${title}</h1>
+    <div style="font-size:13px;color:${TEXT_LIGHT};margin-top:6px">${metaParts.join(' &middot; ')}</div>
+  </td></tr>
+
+  <!-- Time -->
+  <tr><td style="padding:16px 20px">
+    <div style="border:2px solid ${TEAL};border-left:5px solid ${TEAL};border-radius:6px;padding:14px;font-size:14px;color:${TEXT}">
+      <strong style="font-size:22px;color:${TEAL}">${Math.max(0, days)}</strong> <span style="font-size:13px;font-weight:600;color:${TEAL}">days until deadline</span>
+      <div style="font-size:12px;color:${TEXT_LIGHT};margin-top:6px">Deadline: ${C.programme.deadlineLabel}</div>
+    </div>
+  </td></tr>
+
+  <!-- Prerequisites -->
+  <tr><td style="padding:0 20px 16px">
+    <div style="background:#f8f8f8;border-radius:8px;padding:14px 16px">
+      <div style="font-size:11px;font-weight:700;color:${TEXT_LIGHT};text-transform:uppercase;letter-spacing:0.04em;margin-bottom:8px">Before you begin</div>
+      ${prereqs.map(p => `<div style="font-size:13px;color:${TEXT};padding:4px 0">\u2610 ${p}</div>`).join('')}
+    </div>
+  </td></tr>
+
+  <!-- Steps label -->
+  <tr><td style="padding:0 20px 12px">
+    <div style="font-size:11px;font-weight:700;color:${TEXT_LIGHT};text-transform:uppercase;letter-spacing:0.04em">Your ${steps.length} steps</div>
+  </td></tr>
+
+  <!-- Timeline -->
+  <tr><td style="padding:0 20px 16px">
+    <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse">
+      ${stepsHTML}
+    </table>
+    ${bnWarnHTML}
+  </td></tr>
+
+  <!-- Free footnote -->
+  <tr><td style="padding:16px 20px;text-align:center">
+    <div style="font-size:13px;color:${TEAL};font-weight:600">Re-registration is free <span style="font-weight:400;color:${TEXT_LIGHT}">&middot; There is nothing to pay at any step</span></div>
+  </td></tr>
+
+  <!-- Footer -->
+  <tr><td style="background:#222;padding:20px;border-top:1px solid #333">
+    <div style="font-size:13px;font-weight:600;color:#ddd;margin-bottom:4px">Contact MTCIC</div>
+    <div style="font-size:12px;color:#bbb;line-height:1.6">Phone: ${C.contact.phone || '[to be confirmed]'}<br>Email: ${C.contact.email || '[to be confirmed]'}</div>
+    <div style="border-top:1px solid #444;margin-top:12px;padding-top:12px;font-size:11px;color:#aaa;line-height:1.6">
+      ${C.contact.ministry} &middot; ${C.contact.country}<br>
+      <a href="https://business.gov.ki" style="color:${GOLD};text-decoration:none;font-weight:600">business.gov.ki</a>
+    </div>
+  </td></tr>
+
+</table>
+</td></tr></table>
+</body></html>`;
+  }
+
+  /* ═══════════════════════════
+     DOWNLOAD + EMAIL
+     ═══════════════════════════ */
+  $('#download-btn').addEventListener('click', () => {
+    // TODO: jsPDF generation
+    alert('PDF generation via jsPDF — coming soon');
+  });
+
+  $('#email-send-btn').addEventListener('click', async () => {
+    const emailAddr = $('#email-input').value.trim();
+    const status = $('#email-status');
+    if (!emailAddr || !emailAddr.includes('@')) {
+      status.textContent = 'Please enter a valid email address.';
+      status.style.color = 'var(--red)'; show(status); return;
+    }
+
+    const workerUrl = C.api && C.api.emailWorker;
+    if (!workerUrl) {
+      status.textContent = 'Email service is not yet available. Save the plan to your device instead.';
+      status.style.color = 'var(--amber)'; show(status); return;
+    }
+
+    // Disable button while sending
+    const btn = $('#email-send-btn');
+    btn.disabled = true; btn.style.opacity = '0.6';
+    status.textContent = 'Sending\u2026'; status.style.color = 'var(--text-light)'; show(status);
+
+    try {
+      const planHTML = generatePlanHTML();
+      const subject = S.entityName.trim()
+        ? `Your re-registration plan for ${S.entityName.trim()}`
+        : 'Your re-registration plan \u2014 business.gov.ki';
+
+      const resp = await fetch(workerUrl + '/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: emailAddr, subject, html: planHTML }),
+      });
+
+      const data = await resp.json().catch(() => ({}));
+
+      if (resp.ok && data.ok) {
+        status.textContent = 'Plan sent! Check your inbox.';
+        status.style.color = 'var(--green-dark)';
+        $('#email-input').value = '';
+      } else {
+        status.textContent = data.error || 'Could not send. Please try again.';
+        status.style.color = 'var(--red)';
+      }
+    } catch {
+      status.textContent = 'Network error. Check your connection and try again.';
+      status.style.color = 'var(--red)';
+    } finally {
+      btn.disabled = false; btn.style.opacity = '';
+    }
+  });
+
+  /* ═══════════════════════════
+     FOOTER
+     ═══════════════════════════ */
+  function renderFooter() {
+    $('#footer-contact').innerHTML = `Phone: ${C.contact.phone || '[to be confirmed]'}<br>Email: ${C.contact.email || '[to be confirmed]'}`;
+    $('#footer-ministry').textContent = `${C.contact.ministry} · ${C.contact.country}`;
+  }
+
+  /* ═══════════════════════════
+     WIRING
+     ═══════════════════════════ */
+  function handleRestart() {
+    resetFrom(0);
+    hide($('#wizard-section'));
+    show($('#path-fork'));
+    hide($('#info-section'));
+    hide($('#info-cta'));
+    setTimeout(() => smoothScroll('main-content'), 100);
+  }
+
+  $('#path-info').addEventListener('click', () => { hide($('#path-fork')); show($('#info-section')); show($('#info-cta')); setTimeout(() => smoothScroll('info-section'), 100); });
+  $('#path-fast').addEventListener('click', () => { hide($('#path-fork')); show($('#wizard-section')); renderWizard(); setTimeout(() => smoothScroll('wizard-section'), 100); });
+  $('#info-start-btn').addEventListener('click', () => { hide($('#info-cta')); show($('#wizard-section')); renderWizard(); setTimeout(() => smoothScroll('wizard-section'), 100); });
+  $('#wizard-about-btn').addEventListener('click', () => { show($('#info-section')); setTimeout(() => smoothScroll('info-section'), 100); });
+  $('#restart-btn').addEventListener('click', handleRestart);
+
+  /* ── Init ── */
+  renderTimeBanner();
+  renderFAQ();
+  renderFooter();
+})();
+</script>
+</body>
+</html>

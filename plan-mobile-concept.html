@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your plan | business.gov.ki</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background: #fff; color: #333; line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Header ── */
+.header {
+  background: #146151; border-bottom: 4px solid #002a2b;
+  padding: 12px 16px; display: flex; align-items: center; gap: 10px;
+  position: sticky; top: 0; z-index: 10;
+}
+.header .logo {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: rgba(255,255,255,0.12); display: flex;
+  align-items: center; justify-content: center;
+  color: #FFE066; font-size: 11px; font-weight: 800; flex-shrink: 0;
+}
+.header .brand { color: #FFE066; font-size: 16px; font-weight: 700; }
+.header .sub { color: rgba(255,255,255,0.8); font-size: 12px; font-weight: 500; margin-top: 1px; }
+
+/* ── Content ── */
+.content { padding: 20px 16px 0; max-width: 420px; margin: 0 auto; }
+
+/* ── Title area ── */
+.plan-title { font-size: 22px; font-weight: 800; color: #1E5F53; line-height: 1.15; margin-bottom: 4px; }
+.plan-meta { font-size: 13px; color: #666; margin-bottom: 20px; }
+.plan-meta strong { color: #333; }
+
+/* ── Before you begin ── */
+.prereqs {
+  background: #f8f8f8; border-radius: 8px; padding: 14px 16px;
+  margin-bottom: 28px;
+}
+.prereqs__title {
+  font-size: 11px; font-weight: 700; color: #666;
+  text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px;
+}
+.prereqs__list { list-style: none; }
+.prereqs__item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 6px 0; font-size: 13px; color: #333;
+}
+.prereqs__icon {
+  width: 20px; height: 20px; border-radius: 4px;
+  border: 2px solid #0052cc; flex-shrink: 0;
+}
+
+/* ── Section label ── */
+.section-label {
+  font-size: 11px; font-weight: 700; color: #666;
+  text-transform: uppercase; letter-spacing: 0.04em;
+  margin-bottom: 14px;
+}
+
+/* ── Timeline ── */
+.tl { position: relative; padding-left: 40px; }
+
+/* The solid rail */
+.tl::before {
+  content: ''; position: absolute; left: 15px; top: 0; bottom: 0;
+  width: 2px; background: #ddd;
+}
+
+/* ── Step ── */
+.tl-step { position: relative; padding-bottom: 12px; }
+.tl-step:last-child { padding-bottom: 0; }
+
+.tl-step__node {
+  position: absolute; left: -40px; top: 0;
+  width: 30px; height: 30px; border-radius: 50%;
+  background: #0052cc; color: #fff; font-size: 13px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 2;
+}
+
+.tl-step__title {
+  font-size: 15px; font-weight: 700; color: #333;
+  line-height: 1.3; padding-top: 4px;
+}
+
+.tl-step__needs { margin-top: 8px; display: flex; flex-direction: column; gap: 4px; }
+.tl-step__need {
+  display: flex; align-items: flex-start; gap: 8px;
+  font-size: 13px; color: #333; line-height: 1.35;
+}
+.tl-step__need-icon {
+  color: #0052cc; flex-shrink: 0; font-weight: 700; font-size: 13px; margin-top: 1px;
+}
+
+.tl-step__cta {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  width: 100%; margin-top: 10px; padding: 11px 20px;
+  background: #0052cc; color: #fff; font-size: 14px; font-weight: 700;
+  border: none; border-radius: 8px; text-decoration: none;
+  min-height: 48px; cursor: pointer;
+  transition: background 0.15s ease;
+}
+.tl-step__cta:hover { background: #003d99; }
+
+/* Dimmed future steps */
+.tl-step--future .tl-step__node { background: #b0c4de; }
+.tl-step--future .tl-step__cta {
+  background: #fff; color: #0052cc; border: 2px solid #0052cc;
+}
+.tl-step--future .tl-step__cta:hover { background: #eaf4ff; }
+
+/* ── Wait interstitial ── */
+.tl-wait {
+  position: relative; padding: 16px 0 16px 40px;
+}
+/* Override the solid rail with dashed in this segment */
+.tl-wait::before {
+  content: ''; position: absolute; left: 14px; top: 0; bottom: 0;
+  width: 4px;
+  border-left: 2px dashed #fde68a;
+  background: #fff; /* cover the solid rail behind */
+  z-index: 1;
+}
+.tl-wait__pill {
+  position: relative; z-index: 2;
+  background: #fffbeb; border: 1.5px solid #fde68a; border-radius: 8px;
+  padding: 10px 14px; font-size: 13px; font-weight: 600; color: #92400e;
+  line-height: 1.35;
+}
+.tl-wait__pill-title {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 13px; font-weight: 700; color: #92400e;
+}
+.tl-wait__pill-title svg { flex-shrink: 0; }
+.tl-wait__pill-sub {
+  font-size: 11px; font-weight: 500; color: #92400e; opacity: 0.8;
+  margin-top: 2px; padding-left: 22px;
+}
+
+/* ── Parallel tip ── */
+.tl-parallel {
+  position: relative; padding: 12px 0 12px 40px;
+}
+.tl-parallel::before {
+  content: ''; position: absolute; left: 14px; top: 0; bottom: 0;
+  width: 4px; background: #fff; z-index: 1;
+  border-left: 2px solid #ddd;
+}
+.tl-parallel__pill {
+  position: relative; z-index: 2;
+  background: #e8f5e9; border-radius: 8px; padding: 10px 14px;
+  font-size: 13px; font-weight: 600; color: #146151; line-height: 1.35;
+  display: flex; align-items: center; gap: 8px;
+}
+.tl-parallel__pill svg { flex-shrink: 0; }
+
+/* ── Free footnote ── */
+.free-note {
+  text-align: center; padding: 20px 16px 8px;
+  font-size: 13px; color: #146151; font-weight: 600;
+}
+.free-note span { font-weight: 400; color: #666; }
+
+/* ── Footer ── */
+.footer {
+  background: #222; color: #999; padding: 14px 16px; font-size: 11px;
+  line-height: 1.5; margin-top: 20px;
+}
+.footer a { color: #FFE066; text-decoration: none; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="logo">Ki</div>
+  <div>
+    <div class="brand">business.gov.ki</div>
+    <div class="sub">Re-Registration Plan</div>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- Title — one line of context, then straight to action -->
+  <h1 class="plan-title">Your plan for Tarawa Fresh Fish</h1>
+  <div class="plan-meta">Business Name · Form BN-0 · <strong>Free</strong> · Prepared for Teramira Tabai</div>
+
+  <!-- Before you begin — prerequisites first -->
+  <div class="prereqs">
+    <div class="prereqs__title">Before you begin — gather these</div>
+    <ul class="prereqs__list">
+      <li class="prereqs__item"><div class="prereqs__icon"></div> Email address you can access</li>
+      <li class="prereqs__item"><div class="prereqs__icon"></div> Government-issued photo ID</li>
+      <li class="prereqs__item"><div class="prereqs__icon"></div> Details for Tarawa Fresh Fish (owners, addresses, activities)</li>
+    </ul>
+  </div>
+
+  <!-- Steps -->
+  <div class="section-label">Your 4 steps</div>
+
+  <div class="tl">
+
+    <!-- Step 1 -->
+    <div class="tl-step">
+      <div class="tl-step__node">1</div>
+      <div class="tl-step__title">Create an online account</div>
+      <div class="tl-step__needs">
+        <div class="tl-step__need"><span class="tl-step__need-icon">›</span> Email address</div>
+        <div class="tl-step__need"><span class="tl-step__need-icon">›</span> Photo ID</div>
+      </div>
+      <a class="tl-step__cta" href="https://business.gov.ki/public/setupaccount.aspx">Create your account &#8594;</a>
+    </div>
+
+    <!-- WAIT: account approval -->
+    <div class="tl-wait">
+      <div class="tl-wait__pill">
+        <div class="tl-wait__pill-title">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#92400e" stroke-width="1.5"/><path d="M8 4v4.5l3 1.5" stroke="#92400e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Wait 2–3 business days
+        </div>
+        <div class="tl-wait__pill-sub">MTCIC will email you when your account is approved</div>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="tl-step tl-step--future">
+      <div class="tl-step__node">2</div>
+      <div class="tl-step__title">Connect your account to Tarawa Fresh Fish</div>
+      <div class="tl-step__needs">
+        <div class="tl-step__need"><span class="tl-step__need-icon">›</span> Approved account</div>
+        <div class="tl-step__need"><span class="tl-step__need-icon">›</span> Photo ID</div>
+      </div>
+      <a class="tl-step__cta" href="https://business.gov.ki/public/login.aspx">Log in to the registry &#8594;</a>
+    </div>
+
+    <!-- WAIT: connection approval + parallel tip -->
+    <div class="tl-wait">
+      <div class="tl-wait__pill">
+        <div class="tl-wait__pill-title">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#92400e" stroke-width="1.5"/><path d="M8 4v4.5l3 1.5" stroke="#92400e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Wait 2–5 business days
+        </div>
+        <div class="tl-wait__pill-sub">MTCIC will email you when your connection is approved</div>
+      </div>
+    </div>
+
+    <!-- Parallel opportunity -->
+    <div class="tl-parallel">
+      <div class="tl-parallel__pill">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8h12M8 2v12" stroke="#146151" stroke-width="2" stroke-linecap="round"/></svg>
+        While you wait — start step 3 now
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="tl-step tl-step--future">
+      <div class="tl-step__node">3</div>
+      <div class="tl-step__title">Complete form BN-0</div>
+      <div class="tl-step__needs">
+        <div class="tl-step__need"><span class="tl-step__need-icon">›</span> Business details for Tarawa Fresh Fish</div>
+      </div>
+      <a class="tl-step__cta" href="https://business.gov.ki/bn-forms.html">Fill in BN-0 online &#8594;</a>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="tl-step tl-step--future">
+      <div class="tl-step__node">4</div>
+      <div class="tl-step__title">Upload and submit your form</div>
+      <div class="tl-step__needs">
+        <div class="tl-step__need"><span class="tl-step__need-icon">›</span> Connected account</div>
+        <div class="tl-step__need"><span class="tl-step__need-icon">›</span> Completed BN-0 saved as PDF</div>
+      </div>
+      <a class="tl-step__cta" href="https://business.gov.ki/public/login.aspx">Log in to submit &#8594;</a>
+    </div>
+
+  </div><!-- /tl -->
+
+</div><!-- /content -->
+
+<div class="free-note">Re-registration is free <span>· There is nothing to pay at any step</span></div>
+
+<div class="footer">
+  Ministry of Tourism, Commerce, Industry and Cooperatives · Kiribati<br>
+  Visit <a href="https://business.gov.ki">business.gov.ki</a> for official requirements
+</div>
+
+</body>
+</html>

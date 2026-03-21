@@ -1,0 +1,21 @@
+name = "ki-rereg-email"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+
+# KV namespace for rate limiting (optional — worker degrades gracefully without it)
+# Create with: wrangler kv:namespace create "KV"
+# Then uncomment and paste the id:
+# [[kv_namespaces]]
+# binding = "KV"
+# id = "your-kv-namespace-id"
+
+# Environment variables — set via dashboard or `wrangler secret put`
+# SENDGRID_API_KEY  (secret — use `wrangler secret put SENDGRID_API_KEY`)
+# FROM_EMAIL        (e.g. noreply@business.gov.ki)
+# FROM_NAME         (e.g. "Business Registry Kiribati")
+# ALLOWED_ORIGINS   (e.g. "https://business.gov.ki,http://localhost:8080")
+
+[vars]
+FROM_EMAIL = "noreply@business.gov.ki"
+FROM_NAME = "Business Registry Kiribati"
+ALLOWED_ORIGINS = "https://business.gov.ki,http://localhost:8080"
