@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<!-- Share preview (Facebook, WhatsApp, Messenger, LinkedIn) -->
+<meta property="og:title" content="How to re-register your business name | business.gov.ki">
+<meta property="og:description" content="Step-by-step guide to re-registering your business name on the Online Business Registry. Free, easy, works on your phone.">
+<meta property="og:image" content="https://REPLACE-WITH-ACTUAL-DOMAIN/guides/reregister-preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://REPLACE-WITH-ACTUAL-DOMAIN/guides/reregister.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="business.gov.ki">
+
+<!-- Twitter/X card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to re-register your business name">
+<meta name="twitter:description" content="Step-by-step guide. Free, easy, works on your phone.">
+<meta name="twitter:image" content="https://REPLACE-WITH-ACTUAL-DOMAIN/guides/reregister-preview.png">
+
+<!-- WhatsApp-specific: ensure it fetches the right preview -->
+<meta property="og:image:alt" content="Step-by-step guide to re-register your business name on business.gov.ki">
+
+<!-- General SEO -->
+<meta name="description" content="Step-by-step visual guide to re-registering your business name on the Kiribati Online Business Registry at business.gov.ki.">
+<meta name="theme-color" content="#146151">
+<title>How to re-register your business name | business.gov.ki</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { padding-top: env(safe-area-inset-top, 0); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: linear-gradient(180deg, #FFF7ED 0%, #FEE8D0 50%, #FDDCB5 100%); background-attachment: fixed; color: #333; display: flex; flex-direction: column; align-items: center; min-height: 100vh; padding-bottom: 32px; }
+main { display: flex; flex-direction: column; align-items: center; width: 100%; }
+
+/* ── Site banner ── */
+.site-banner { width: 100%; background: #146151; border-bottom: 4px solid #002a2b; padding: 14px 20px; display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+.site-banner .logo { width: 36px; height: 36px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.site-banner .logo-text { font-size: 9px; font-weight: 700; color: #146151; }
+.site-banner .brand { font-size: 18px; font-weight: 700; color: #FFE066; }
+
+/* Header */
+.guide-header { text-align: center; margin-bottom: 10px; max-width: 380px; padding: 0 12px; }
+.guide-header h1 { font-size: 1.6em; font-weight: 700; margin-bottom: 4px; color: #146151; }
+.guide-header .ki { font-size: 0.82em; color: #6b6b6b; font-style: italic; margin-bottom: 8px; }
+
+/* Progress */
+.progress-row { display: flex; align-items: center; gap: 2px; margin-bottom: 8px; max-width: 380px; width: 100%; padding: 0 12px; }
+.pip { height: 5px; flex: 1; background: rgba(0,0,0,0.1); border-radius: 3px; transition: background 0.3s; }
+.pip.done { background: #448040; } .pip.active { background: #146151; }
+
+/* Step banner */
+.step-banner { background: #fffcf8; border-radius: 12px; padding: 14px 18px 16px; margin-bottom: 12px; max-width: 380px; width: 100%; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+.step-stage { display: inline-block; font-size: 0.68em; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 3px 10px; border-radius: 10px; margin-bottom: 6px; }
+.step-stage.setup { background: #eaf4ff; color: #0052cc; }
+.step-stage.form { background: #e8f5e9; color: #146151; }
+.step-stage.upload { background: #fff8e6; color: #8a6d00; }
+.step-num { font-size: 0.75em; color: #666; font-weight: 600; margin-bottom: 2px; }
+.step-title { font-size: 1.15em; font-weight: 800; color: #146151; margin-bottom: 3px; line-height: 1.25; }
+.step-title-ki { font-size: 0.78em; color: #6b6b6b; font-style: italic; margin-bottom: 6px; }
+.step-desc { font-size: 0.85em; color: #555; line-height: 1.45; }
+
+
+/* ── Welcome timeline (outside phone) ── */
+.welcome-panel { display: none; max-width: 380px; width: 100%; padding: 0 12px; }
+.welcome-panel.active { display: block; }
+
+.tl-card {
+  border-radius: 0; padding: 16px 18px; margin-bottom: 10px;
+  box-shadow: 0 2px 8px rgba(100,60,20,0.08);
+}
+.tl-card.blue { background: #fff; border: 1px solid #e8ddd0; border-left: 5px solid #0052cc; }
+.tl-card.green { background: #fff; border: 1px solid #e8ddd0; border-left: 5px solid #448040; }
+.tl-card.amber { background: #fff; border: 1px solid #e8ddd0; border-left: 5px solid #b8860b; }
+
+.tl-card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.tl-card-dot {
+  width: 32px; height: 32px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 800; color: #fff; flex-shrink: 0;
+}
+.tl-card-dot.blue { background: #0052cc; }
+.tl-card-dot.green { background: #448040; }
+.tl-card-dot.amber { background: #b8860b; }
+.tl-card-title { font-size: 0.95em; font-weight: 700; color: #222; line-height: 1.2; }
+
+.tl-steps { padding: 0; margin: 0; list-style: none; }
+.tl-steps li {
+  display: flex; align-items: center; gap: 10px;
+  padding: 6px 0; border-bottom: 1px solid #f0f0f0;
+  font-size: 0.92em; color: #333; font-weight: 500;
+}
+.tl-steps li:last-child { border-bottom: none; }
+.tl-steps .num {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: #f0f0f0; display: flex; align-items: center; justify-content: center;
+  font-size: 0.75em; font-weight: 700; color: #555; flex-shrink: 0;
+}
+.tl-card.blue .tl-steps .num { background: #eaf4ff; color: #0052cc; }
+.tl-card.green .tl-steps .num { background: #e8f5e9; color: #146151; }
+.tl-card.amber .tl-steps .num { background: #fff8e6; color: #8a6d00; }
+
+.tl-wait {
+  display: flex; align-items: center; gap: 8px;
+  margin-top: 8px; padding: 8px 10px;
+  background: #eaf4ff; border-radius: 6px;
+  font-size: 0.82em; color: #0052cc; font-weight: 600;
+}
+.tl-ki { font-size: 0.82em; color: #666; font-style: italic; text-align: center; margin-top: 12px; }
+
+/* Phone */
+.phone { width: 300px; height: 540px; background: #111; border-radius: 28px; padding: 8px; box-shadow: 0 16px 48px rgba(100,60,20,0.2); }
+.phone-screen { width: 100%; height: 100%; background: #fff; border-radius: 22px; overflow: hidden; position: relative; }
+.screen { display: none; width: 100%; height: 100%; overflow-y: auto; }
+.screen.active { display: block; }
+
+/* ── Masthead (matches mobile mockup) ── */
+.mast { background: #146151; padding: 10px 14px; display: flex; align-items: center; gap: 8px; border-bottom: 3px solid #002a2b; }
+.mast .hamburger { display: flex; flex-direction: column; gap: 3px; padding: 4px 5px; border: 1px solid rgba(255,224,102,0.5); border-radius: 3px; flex-shrink: 0; }
+.mast .hamburger .bar { width: 14px; height: 1.5px; background: #FFE066; border-radius: 1px; }
+.mast .brand { font-size: 13px; font-weight: 700; color: #FFE066; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mast .login { background: #fff; color: #146151; font-size: 8px; font-weight: 700; padding: 5px 10px; border-radius: 4px; border: 1.5px solid #146151; text-transform: uppercase; flex-shrink: 0; letter-spacing: 0.03em; }
+
+/* ── Hero task cards (matches mockup) ── */
+.hero-bg { background: linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)), linear-gradient(135deg, #e8f0e8 0%, #d4e4d4 100%); padding: 12px; }
+.hero-panel { background: rgba(255,255,255,0.88); padding: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+.hero-panel h2 { font-size: 14px; font-weight: 700; color: #146151; margin-bottom: 10px; text-align: center; }
+.task-card { display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; background: #fff; border-top: 4px solid #A3262A; box-shadow: 0 1px 3px rgba(0,0,0,0.12); margin-bottom: 6px; font-size: 10px; font-weight: 700; color: #222; text-align: left; line-height: 1.3; min-height: 38px; }
+.task-card .chevron { color: #A3262A; font-size: 16px; margin-left: 8px; flex-shrink: 0; }
+.task-card.hl { border-top-color: #146151; background: #e8f5e9; border: 2px solid #146151; border-top: 4px solid #146151; }
+.task-card.hl .chevron { color: #146151; }
+.hl-arrow { font-size: 9px; color: #146151; font-weight: 700; text-align: center; margin-top: 2px; margin-bottom: 4px; }
+
+/* ── Info box (matches mockup) ── */
+.info-box { display: flex; gap: 10px; background: #fff; border: 1px solid #ddd; border-radius: 4px; padding: 10px; margin: 8px 0; align-items: flex-start; }
+.info-box .info-i { width: 22px; height: 22px; background: #0052cc; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 11px; font-weight: 700; flex-shrink: 0; font-style: italic; }
+.info-box .info-text { font-size: 10px; color: #333; line-height: 1.5; }
+.info-box .info-text strong { color: #146151; }
+
+/* ── Content area ── */
+.sc { padding: 14px; }
+.sc h3 { font-size: 13px; font-weight: 700; color: #333; margin-bottom: 8px; }
+.sc p { font-size: 11px; color: #555; line-height: 1.5; margin-bottom: 8px; }
+
+/* ── Step accordion (matches mockup) ── */
+.step-acc { border-bottom: 1px solid #e0e0e0; padding: 10px 0 10px 0; display: flex; align-items: center; gap: 10px; }
+.step-acc .num { width: 24px; height: 24px; border-radius: 50%; border: 2px solid #0052cc; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; color: #0052cc; flex-shrink: 0; }
+.step-acc .num.done { background: #0052cc; color: #fff; }
+.step-acc .label { font-size: 11px; font-weight: 600; color: #333; flex: 1; }
+.step-acc .toggle { font-size: 10px; color: #0044CC; text-decoration: underline; }
+.step-acc.hl { background: #f0f4f0; padding-left: 8px; padding-right: 8px; border-radius: 4px; }
+
+/* ── Form builder ── */
+.fb-hdr { background: #1E5F53; padding: 10px 14px; }
+.fb-hdr h2 { color: #fff; font-size: 12px; font-weight: 700; }
+.fb-hdr .ref { color: rgba(255,255,255,0.5); font-size: 9px; }
+.fb-progress { padding: 8px 14px; background: #f9f9f9; border-bottom: 1px solid #eee; }
+.fb-prog-bar { height: 4px; background: #e0e0e0; border-radius: 2px; overflow: hidden; }
+.fb-prog-fill { height: 100%; background: #0052cc; border-radius: 2px; }
+.fb-prog-text { font-size: 8px; color: #666; margin-top: 2px; }
+.fb-field { margin-bottom: 10px; }
+.fb-field label { display: block; font-size: 10px; font-weight: 600; color: #333; margin-bottom: 2px; }
+.fb-field input { width: 100%; padding: 6px 8px; border: 1.5px solid #767676; border-radius: 3px; font-size: 12px; font-family: inherit; color: #333; }
+.fb-field input.filled { border-color: #ccc; background: #fafafa; }
+.fb-btn { padding: 8px 16px; border-radius: 3px; font-size: 11px; font-weight: 700; cursor: pointer; font-family: inherit; border: none; }
+.fb-btn-blue { background: #0052cc; color: #fff; }
+.fb-btn-green { background: #146151; color: #fff; }
+.fb-btn-row { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; padding-top: 10px; border-top: 1px solid #eee; }
+
+/* ── Shared components ── */
+.checklist { list-style: none; padding: 0; }
+.checklist li { display: flex; align-items: flex-start; gap: 8px; padding: 7px 0; border-bottom: 1px solid #f0f0f0; font-size: 11px; color: #333; line-height: 1.4; }
+.checklist .ck { width: 20px; height: 20px; border-radius: 50%; border: 2px solid #448040; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #448040; font-size: 11px; font-weight: 700; }
+.checklist .ck.filled { background: #448040; color: #fff; }
+
+.rv-section { background: #f9f9f9; border: 1px solid #e0e0e0; border-radius: 4px; padding: 8px; margin-bottom: 8px; }
+.rv-section h4 { font-size: 9px; color: #0052cc; text-transform: uppercase; margin-bottom: 4px; }
+.rv-row { display: flex; gap: 6px; font-size: 9px; padding: 2px 0; border-bottom: 1px solid #eee; }
+.rv-row:last-child { border: none; }
+.rv-row .lbl { color: #595959; width: 38%; flex-shrink: 0; }
+.rv-row .val { color: #333; font-weight: 600; }
+
+.success-hdr { background: #146151; color: #fff; padding: 16px 14px; text-align: center; }
+.success-hdr .icon { width: 30px; height: 30px; border-radius: 50%; border: 2px solid #fff; display: flex; align-items: center; justify-content: center; margin: 0 auto 6px; font-size: 15px; font-weight: 700; }
+.success-hdr h3 { font-size: 12px; }
+.warn-box { background: #fff8e6; border: 1.5px solid #d4a017; border-radius: 5px; padding: 10px; margin: 8px 0; text-align: center; }
+.warn-box .wt { font-size: 10px; font-weight: 800; color: #6d5200; text-transform: uppercase; }
+.warn-box .ws { font-size: 9px; color: #555; margin-top: 2px; }
+.file-box { background: #f4f5f7; border: 1px solid #ddd; border-radius: 6px; padding: 8px 10px; display: flex; align-items: center; gap: 8px; margin: 8px 0; }
+.file-box .fi { width: 26px; height: 32px; background: #dc3545; border-radius: 3px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 7px; font-weight: 800; flex-shrink: 0; }
+.file-box .fn { font-size: 10px; font-weight: 700; color: #333; }
+.file-box .fs { font-size: 8px; color: #666; }
+.wait-box { background: #eaf4ff; border-left: 4px solid #0052cc; border-radius: 0 6px 6px 0; padding: 12px 14px; margin: 10px 0; text-align: center; }
+.wait-box .wait-icon { font-size: 22px; margin-bottom: 4px; }
+.wait-box .wait-title { font-size: 11px; font-weight: 700; color: #0052cc; }
+.wait-box .wait-sub { font-size: 10px; color: #555; margin-top: 4px; line-height: 1.4; }
+.wait-box .wait-ki { font-size: 9px; color: #595959; font-style: italic; margin-top: 4px; }
+.tip-box { background: #eaf4ff; border-left: 3px solid #0052cc; border-radius: 0 4px 4px 0; padding: 8px 10px; margin: 8px 0; font-size: 9px; color: #333; line-height: 1.4; }
+.tip-box strong { color: #0052cc; }
+.entity-card { border: 1.5px solid #ddd; border-radius: 6px; padding: 10px; margin: 8px 0; }
+.entity-card .en { font-size: 12px; font-weight: 700; color: #333; }
+.entity-card .er { font-size: 10px; color: #666; }
+.entity-btn { display: inline-block; margin-top: 6px; padding: 6px 14px; border-radius: 3px; font-size: 10px; font-weight: 700; color: #fff; }
+.entity-btn-blue { background: #0052cc; }
+.entity-btn-green { background: #448040; }
+.hl-box { border: 2px solid #0052cc; border-radius: 6px; padding: 2px; }
+.hl-label { font-size: 8px; color: #0052cc; font-weight: 700; text-align: center; margin-top: 2px; }
+.upload-zone { border: 2px dashed #448040; border-radius: 6px; background: #e8f5e9; padding: 12px; text-align: center; margin-bottom: 6px; font-size: 10px; color: #146151; font-weight: 500; }
+.upload-btn { background: #448040; color: #fff; border: none; border-radius: 3px; padding: 6px 12px; font-size: 9px; font-weight: 600; }
+.done-panel { background: #e8f5e9; border: 2px solid #448040; border-radius: 8px; padding: 16px; text-align: center; margin: 12px; }
+.done-panel .big-check { font-size: 36px; margin-bottom: 6px; }
+.done-panel .done-title { font-size: 13px; font-weight: 700; color: #146151; }
+.done-panel .done-sub { font-size: 10px; color: #555; margin-top: 4px; line-height: 1.4; }
+.reg-btn { width: 100%; padding: 9px; border: none; border-radius: 3px; font-size: 12px; font-weight: 700; color: #fff; cursor: pointer; }
+
+/* Nav */
+.nav-bar { display: flex; gap: 8px; margin-top: 14px; padding: 0 12px; }
+.nav-btn { padding: 12px 28px; border-radius: 6px; font-size: 14px; min-height: 48px; font-weight: 600; cursor: pointer; font-family: inherit; border: 2px solid transparent; transition: all 0.15s; }
+.nav-btn.primary { background: #146151; color: #fff; }
+.nav-btn.primary:hover { background: #0d4a3e; }
+.nav-btn.primary:disabled { background: #e0d5c8; color: #a09080; cursor: not-allowed; border-color: transparent; }
+.nav-btn.site-link {
+  background: transparent; color: #146151; border-color: #146151;
+  font-size: 12px; padding: 12px 16px; text-decoration: none; text-align: center;
+  min-height: 48px; display: inline-flex; align-items: center;
+}
+.nav-btn.site-link:hover { background: rgba(255,255,255,0.5); }
+.nav-btn.secondary { background: #fffcf8; color: #146151; border-color: #146151; }
+.nav-btn.secondary:hover { background: #fff; }
+.nav-btn.secondary:disabled { color: #c0b0a0; border-color: #d8cfc0; background: #fffcf8; cursor: not-allowed; }
+</style>
+</head>
+<body>
+<main>
+<div class="site-banner">
+  <div class="logo"><span class="logo-text">KI</span></div>
+  <span class="brand">business.gov.ki</span>
+</div>
+<div class="guide-header">
+  <h1>How to re-register your business name</h1>
+  <div class="ki">[I-Kiribati: E kanga aron am manga-rejita aran am bitineti]</div>
+</div>
+<div class="progress-row" id="progRow"></div>
+<div class="step-banner" role="status" aria-live="polite">
+  <div class="step-stage" id="stepStage"></div><br>
+  <div class="step-num" id="stepNum"></div>
+  <div class="step-title" id="stepTitle"></div>
+  <div class="step-title-ki" id="stepTitleKi"></div>
+  <div class="step-desc" id="stepDesc"></div>
+</div>
+<!-- Welcome timeline (outside phone) -->
+<div class="welcome-panel active" id="welcomePanel" role="region" aria-label="Overview of all steps">
+  <div class="tl-card blue">
+    <div class="tl-card-header">
+      <div class="tl-card-dot blue">&#9881;</div>
+      <div class="tl-card-title">Get set up</div>
+    </div>
+    <ul class="tl-steps">
+      <li><div class="num">1</div> Go to business.gov.ki</li>
+      <li><div class="num">2</div> Create an account</li>
+      <li><div class="num">3</div> Get permission to re-register</li>
+    </ul>
+    <div class="tl-wait">&#9203; The Ministry must approve each step before you can continue. This can take a few days.</div>
+  </div>
+
+  <div class="tl-card green">
+    <div class="tl-card-header">
+      <div class="tl-card-dot green">&#9998;</div>
+      <div class="tl-card-title">Complete the form</div>
+    </div>
+    <ul class="tl-steps">
+      <li><div class="num">4</div> Go back and read the information</li>
+      <li><div class="num">5</div> Open the form builder</li>
+      <li><div class="num">6</div> Check you have everything</li>
+      <li><div class="num">7</div> Fill in your details</li>
+      <li><div class="num">8</div> Check and save your form</li>
+    </ul>
+  </div>
+
+  <div class="tl-card amber">
+    <div class="tl-card-header">
+      <div class="tl-card-dot amber">&#10003;</div>
+      <div class="tl-card-title">Upload and submit</div>
+    </div>
+    <ul class="tl-steps">
+      <li><div class="num">9</div> Log in and find your business</li>
+      <li><div class="num">10</div> Upload form and documents</li>
+      <li><div class="num">11</div> Submit &#8212; you're done!</li>
+    </ul>
+  </div>
+
+  <div class="tl-ki">[I-Kiribati: Translation of overview steps]</div>
+</div>
+
+<div class="phone" id="phoneFrame"><div class="phone-screen" role="img" aria-label="Phone screen showing the current step">
+
+  <!-- 1: placeholder (welcome is outside phone) -->
+  <div class="screen" id="s1" style="display:none;"></div>
+
+  <!-- 2: GO TO WEBSITE -->
+  <div class="screen" id="s2">
+    <div class="mast"><div class="hamburger"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div><span class="brand">business.gov.ki</span><span class="login">LOG IN</span></div>
+    <div class="hero-bg">
+      <div class="hero-panel">
+        <h2>Popular tasks</h2>
+        <div class="task-card"><span>Search the registry</span><span class="chevron">&#8250;</span></div>
+        <div class="task-card hl"><span>Create an account</span><span class="chevron">&#8250;</span></div>
+        <div class="hl-arrow">&#128070; Tap here to create your account</div>
+        <div class="task-card"><span>Re-register your company</span><span class="chevron">&#8250;</span></div>
+        <div class="task-card"><span>Re-register your business name</span><span class="chevron">&#8250;</span></div>
+        <div class="task-card"><span>Register a new local company</span><span class="chevron">&#8250;</span></div>
+        <div class="task-card"><span>Register a new business name</span><span class="chevron">&#8250;</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3: CREATE ACCOUNT -->
+  <div class="screen" id="s3">
+    <div class="mast"><div class="hamburger"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div><span class="brand">business.gov.ki</span><span class="login">LOG IN</span></div>
+    <div class="sc">
+      <h3>Create your account</h3>
+      <p>You need an account before you can send any forms to the registry.</p>
+      <div style="font-size:10px;color:#555;line-height:1.7;margin-bottom:10px;">
+        <div style="padding:3px 0;border-bottom:1px solid #eee;">1. Tap <strong>CREATE ACCOUNT</strong> in the menu</div>
+        <div style="padding:3px 0;border-bottom:1px solid #eee;">2. Fill in your name, email, and address</div>
+        <div style="padding:3px 0;border-bottom:1px solid #eee;">3. Upload a photo of your ID</div>
+        <div style="padding:3px 0;">4. Submit and wait for approval</div>
+      </div>
+      <div class="wait-box"><div class="wait-icon">&#9203;</div><div class="wait-title">Wait for approval</div><div class="wait-sub">The Ministry (MTCIC) will check your ID and approve your account. You will receive an email when it is ready.</div><div class="wait-ki">[I-Kiribati: Tataninga approval mai MTCIC]</div></div>
+      <div class="tip-box"><strong>&#128161; Tip:</strong> You can take a photo of your ID directly from your phone camera when uploading.</div>
+    </div>
+  </div>
+
+  <!-- 4: REQUEST AUTHORITY -->
+  <div class="screen" id="s4">
+    <div class="mast"><div class="hamburger"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div><span class="brand">business.gov.ki</span><span class="login">LOG IN</span></div>
+    <div class="sc">
+      <h3>Get permission to re-register</h3>
+      <p>You need official permission (called "authority") to update your business name on the registry.</p>
+      <div style="font-size:10px;color:#555;line-height:1.7;margin-bottom:10px;">
+        <div style="padding:3px 0;border-bottom:1px solid #eee;">1. Log in to your account</div>
+        <div style="padding:3px 0;border-bottom:1px solid #eee;">2. Search for your business name</div>
+        <div style="padding:3px 0;border-bottom:1px solid #eee;">3. Tap on your business name</div>
+        <div style="padding:3px 0;border-bottom:1px solid #eee;">4. Tap <strong style="color:#0052cc;">REQUEST ENTITY AUTHORITY</strong></div>
+        <div style="padding:3px 0;">5. Upload your ID or letter of authority, then submit</div>
+      </div>
+      <div class="entity-card"><div class="en">Island Trading Co</div><div class="er">BN-99001</div><div class="hl-box" style="display:inline-block;margin-top:6px;"><span class="entity-btn entity-btn-blue" style="margin:0;">REQUEST ENTITY AUTHORITY</span></div><div class="hl-label">&#128070; Tap this button</div></div>
+      <div class="wait-box"><div class="wait-icon">&#9203;</div><div class="wait-title">Wait for approval</div><div class="wait-sub">The Ministry will check your request. You will receive an email when your permission is approved.</div><div class="wait-ki">[I-Kiribati: Tataninga approval n te authority]</div></div>
+    </div>
+  </div>
+
+  <!-- 5: GO BACK TO SITE -->
+  <div class="screen" id="s5">
+    <div class="mast"><div class="hamburger"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div><span class="brand">business.gov.ki</span><span class="login">LOG IN</span></div>
+    <div class="hero-bg">
+      <div class="hero-panel">
+        <h2>Popular tasks</h2>
+        <div class="task-card"><span>Search the registry</span><span class="chevron">&#8250;</span></div>
+        <div class="task-card"><span>Create an account</span><span class="chevron">&#8250;</span></div>
+        <div class="task-card"><span>Re-register your company</span><span class="chevron">&#8250;</span></div>
+        <div class="task-card hl"><span>Re-register your business name</span><span class="chevron">&#8250;</span></div>
+        <div class="hl-arrow">&#128070; Tap here now</div>
+        <div class="task-card"><span>Register a new local company</span><span class="chevron">&#8250;</span></div>
+        <div class="task-card"><span>Register a new business name</span><span class="chevron">&#8250;</span></div>
+      </div>
+    </div>
+    <div class="sc" style="padding-top:8px;">
+      <div class="tip-box"><strong>&#9989; Your authority has been approved.</strong> You can now re-register your business name. Tap the button above to go to the information page.<div style="font-size:8px;color:#666;font-style:italic;margin-top:2px;">[I-Kiribati: E a tia n approved am authority. Ko kona n manga-rejita ngkai]</div></div>
+    </div>
+  </div>
+
+  <!-- 5b: READ FORM INFO -->
+  <div class="screen" id="s5b">
+    <div class="mast"><div class="hamburger"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div><span class="brand">business.gov.ki</span><span class="login">LOG IN</span></div>
+    <div class="sc">
+      <h3 style="font-size:12px;margin-bottom:6px;">Re-register your business name</h3>
+      <div class="info-box"><div class="info-i">i</div><div class="info-text">You must re-register by <strong>31 March 2027</strong>. Business names not re-registered by this date will be removed.</div></div>
+      <div style="font-size:10px;color:#555;margin-bottom:8px;">
+        <div class="step-acc"><div class="num done">1</div><div class="label">Create an online account</div><div class="toggle">Done &#10003;</div></div>
+        <div class="step-acc"><div class="num done">2</div><div class="label">Get authority to file</div><div class="toggle">Done &#10003;</div></div>
+        <div class="step-acc hl"><div class="num">3</div><div class="label" style="color:#0052cc;font-weight:700;">Complete the re-registration form</div><div class="toggle" style="color:#0052cc;">Next</div></div>
+        <div class="step-acc"><div class="num">4</div><div class="label">Upload and submit</div><div class="toggle">Show</div></div>
+      </div>
+      <div style="background:#e8f5e9;border:1.5px solid #146151;border-radius:4px;padding:10px;text-align:center;margin-top:6px;">
+        <div style="font-size:11px;font-weight:700;color:#146151;margin-bottom:4px;">Use the online form</div>
+        <div style="font-size:10px;color:#555;margin-bottom:6px;">The online form guides you through the re-registration form (BN-0) step by step on your phone.</div>
+        <button class="fb-btn fb-btn-green" style="padding:8px 20px;">Open online form &#8594;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6: CHECKLIST -->
+  <div class="screen" id="s6">
+    <div class="fb-hdr"><h2>Before you start</h2><div class="ref" style="font-style:italic;">[I-Kiribati: Imwain am moana]</div></div>
+    <div class="sc">
+      <p style="font-size:11px;color:#333;font-weight:600;margin-bottom:6px;">Make sure you have these ready:</p>
+      <ul class="checklist">
+        <li><div class="ck filled">&#10003;</div><div><strong>Registration number</strong><br><span style="font-size:10px;color:#666;">e.g. BN-12345</span></div></li>
+        <li><div class="ck filled">&#10003;</div><div><strong>Details of every owner</strong><br><span style="font-size:10px;color:#666;">Name, nationality, date of birth, address</span></div></li>
+        <li><div class="ck filled">&#10003;</div><div><strong>Photo ID for each owner</strong><br><span style="font-size:10px;color:#666;">Passport, licence, or national ID</span></div></li>
+        <li><div class="ck">&#128247;</div><div><strong>Your phone camera</strong><br><span style="font-size:10px;color:#666;">Photograph your ID when uploading</span></div></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 7: FILL IN -->
+  <div class="screen" id="s7">
+    <div class="fb-hdr"><h2>Re-register your business name</h2><div class="ref">BN-0</div></div>
+    <div class="fb-progress"><div class="fb-prog-bar"><div class="fb-prog-fill" style="width:38%;"></div></div><div class="fb-prog-text">Section 3 of 8</div></div>
+    <div class="sc">
+      <div style="font-size:12px;font-weight:700;color:#333;padding-bottom:6px;border-bottom:2px solid #0052cc;margin-bottom:10px;">Person filing this form</div>
+      <div class="fb-field"><label>First name</label><input type="text" value="Teramira" class="filled" readonly></div>
+      <div class="fb-field"><label>Last name</label><input type="text" value="Tabai" class="filled" readonly></div>
+      <div class="fb-field"><label>Phone number</label><input type="text" value="+686 75512345" class="filled" readonly></div>
+      <div class="fb-field"><label>Email address</label><input type="text" value="teramira@test.ki" class="filled" readonly></div>
+      <div class="fb-btn-row"><button class="fb-btn" style="background:#fff;color:#0052cc;border:1.5px solid #0052cc;">&#8592; Back</button><button class="fb-btn fb-btn-blue">Continue &#8594;</button></div>
+    </div>
+  </div>
+
+  <!-- 8: REVIEW -->
+  <div class="screen" id="s8">
+    <div class="fb-hdr"><h2>Re-register your business name</h2><div class="ref">BN-0</div></div>
+    <div class="sc">
+      <div style="font-size:12px;font-weight:700;color:#333;padding-bottom:6px;border-bottom:2px solid #0052cc;margin-bottom:8px;">Review your form</div>
+      <div style="background:#e8f5e9;border:1.5px solid #146151;border-radius:4px;padding:8px;margin-bottom:8px;">
+        <div style="font-size:10px;font-weight:700;color:#146151;margin-bottom:3px;">Cover Sheet | BN-0</div>
+        <div class="rv-row"><span class="lbl">Fee</span><span class="val">Free</span></div>
+        <div class="rv-row"><span class="lbl">Deadline</span><span class="val">31 March 2027</span></div>
+        <div style="font-size:9px;color:#146151;font-weight:600;margin-top:3px;">Documents needed:</div>
+        <div style="font-size:9px;color:#555;">&#8226; Photo ID for Teramira Tabai</div>
+      </div>
+      <div class="rv-section"><h4>Business name</h4><div class="rv-row"><span class="lbl">Name</span><span class="val">Island Trading Co</span></div><div class="rv-row"><span class="lbl">Reg. number</span><span class="val">BN-99001</span></div></div>
+      <div class="rv-section"><h4>Person filing</h4><div class="rv-row"><span class="lbl">Name</span><span class="val">Teramira Tabai</span></div><div class="rv-row"><span class="lbl">Email</span><span class="val"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f480918695999d8695b480918780da9f9d">[email&#160;protected]</a></span></div></div>
+      <div class="fb-btn-row"><button class="fb-btn" style="background:#fff;color:#0052cc;border:1.5px solid #0052cc;">&#8592; Edit</button><button class="fb-btn fb-btn-green">Confirm &#8594;</button></div>
+    </div>
+  </div>
+
+  <!-- 9: SAVE PDF -->
+  <div class="screen" id="s9">
+    <div class="success-hdr"><div class="icon">&#10003;</div><h3>Your form is ready</h3></div>
+    <div class="sc">
+      <div class="warn-box"><div style="font-size:14px;margin-bottom:2px;">&#9888;&#65039;</div><div class="wt">Not submitted yet</div><div class="ws">You must send this file to your registry account.</div><div style="font-size:8px;color:#666;font-style:italic;margin-top:2px;">[I-Kiribati: E tuai reke &#8212; ko riai n upload]</div></div>
+      <div class="file-box"><div class="fi">PDF</div><div><div class="fn">BN-0_Island_Trading_Co.pdf</div><div class="fs">142 KB</div></div></div>
+      <button class="fb-btn fb-btn-green" style="width:100%;padding:10px;display:flex;align-items:center;justify-content:center;gap:6px;">&#8595; Save your form to your phone</button>
+      <div style="font-size:9px;color:#666;text-align:center;margin-top:3px;">The file will be saved in your Downloads folder</div>
+    </div>
+  </div>
+
+  <!-- 10: LOG IN AND FIND BUSINESS -->
+  <div class="screen" id="s10">
+    <div class="mast"><div class="hamburger"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div><span class="brand">business.gov.ki</span><span class="login">LOG IN</span></div>
+    <div class="sc">
+      <h3 style="margin-bottom:4px;">My Entities</h3>
+      <p style="font-size:10px;color:#666;margin-bottom:10px;">Tap your business name below.</p>
+      <div class="entity-card" style="border-color:#448040;background:#f9fff9;">
+        <div class="en">Island Trading Co</div><div class="er">BN-99001 &#183; Business Name</div>
+        <div class="hl-box" style="display:inline-block;margin-top:6px;border-color:#448040;"><span class="entity-btn entity-btn-green" style="margin:0;">RE-REGISTER</span></div>
+        <div class="hl-label" style="color:#448040;">&#128070; Tap RE-REGISTER</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 11: UPLOAD -->
+  <div class="screen" id="s11">
+    <div class="mast"><div class="hamburger"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div><span class="brand">business.gov.ki</span><span class="login">LOG IN</span></div>
+    <div class="sc">
+      <h3 style="font-size:11px;margin-bottom:8px;">Upload your form and documents</h3>
+      <div style="font-size:10px;font-weight:700;color:#333;margin-bottom:2px;">Form Upload</div>
+      <div class="upload-zone">Tap to select your saved form<br><span style="font-size:9px;color:#666;">BN-0_Island_Trading_Co.pdf</span></div>
+      <div style="font-size:10px;font-weight:700;color:#333;margin-bottom:2px;margin-top:10px;">Other documents you need</div>
+      <div class="tip-box"><strong>&#128247; Photo ID:</strong> Tap upload, then choose <strong>Camera</strong> to photograph your ID directly.<div style="font-size:8px;color:#666;font-style:italic;margin-top:2px;">[I-Kiribati: Ko kona n taboa am ID mai am camera]</div></div>
+      <button class="upload-btn" style="margin-top:4px;">+ Add supporting document</button>
+    </div>
+  </div>
+
+  <!-- 12: SUBMIT -->
+  <div class="screen" id="s12">
+    <div class="mast"><div class="hamburger"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div><span class="brand">business.gov.ki</span><span class="login">LOG IN</span></div>
+    <div class="sc">
+      <h3 style="margin-bottom:6px;">Submit your application</h3>
+      <div style="background:#f4f5f7;border-radius:4px;padding:8px;margin-bottom:8px;font-size:10px;">
+        <div style="font-weight:600;color:#333;margin-bottom:4px;">Uploaded files:</div>
+        <div style="display:flex;align-items:center;gap:6px;padding:3px 0;border-bottom:1px solid #e0e0e0;"><span style="color:#b32d14;font-weight:700;font-size:8px;">PDF</span><span style="color:#333;">BN-0_Island_Trading_Co.pdf</span><span style="color:#448040;margin-left:auto;">&#10003;</span></div>
+        <div style="display:flex;align-items:center;gap:6px;padding:3px 0;"><span style="color:#666;font-weight:700;font-size:8px;">IMG</span><span style="color:#333;">Photo_ID_Teramira.jpg</span><span style="color:#448040;margin-left:auto;">&#10003;</span></div>
+      </div>
+      <div class="hl-box" style="margin-bottom:4px;"><button class="reg-btn" style="background:#0052cc;cursor:pointer;">SUBMIT</button></div>
+      <div class="hl-label" style="margin-bottom:10px;">&#128070; Tap SUBMIT</div>
+      <div style="background:#fff8e6;border-radius:4px;padding:8px;font-size:10px;color:#555;text-align:center;">
+        <div style="font-weight:700;color:#8a6d00;margin-bottom:2px;">Checkout</div>
+        Re-registration is <strong>free</strong> &#8212; there is nothing to pay. Tap the green <strong>CHECKOUT</strong> button to finish.
+      </div>
+    </div>
+  </div>
+
+  <!-- 13: DONE -->
+  <div class="screen" id="s13">
+    <div class="mast"><div class="hamburger"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div><span class="brand">business.gov.ki</span><span class="login">LOG IN</span></div>
+    <div style="padding:14px;">
+      <div class="done-panel"><div class="big-check">&#9989;</div><div class="done-title">Your application has been submitted</div><div class="done-sub">The Ministry will check your form. You will receive an email when your business name is re-registered.</div><div style="font-size:9px;color:#666;font-style:italic;margin-top:6px;">[I-Kiribati: E a tia n submit. Ko na receive te email ngkana e a tia]</div></div>
+      <div class="tip-box" style="margin-top:10px;"><strong>What happens next?</strong><br>The Ministry will check your form and documents. If anything is missing, they will contact you by email or phone. If everything is correct, your business name will be re-registered.<div style="font-size:8px;color:#666;font-style:italic;margin-top:3px;">[I-Kiribati: Translation of what happens next]</div></div>
+      <div class="tip-box" style="border-color:#dc3545;background:#fdecea;margin-top:6px;"><strong style="color:#a02010;">If there are problems:</strong><br>The Ministry will contact you and explain what you need to do.</div>
+    </div>
+  </div>
+
+</div></div>
+</main>
+<nav class="nav-bar" aria-label="Step navigation">
+  <button class="nav-btn secondary" id="btnBack" onclick="back()" disabled aria-label="Go to previous step">&#8592; Back</button>
+  <a class="nav-btn site-link" href="https://business.gov.ki" target="_blank" rel="noopener" aria-label="Open business.gov.ki in a new tab">Go to business.gov.ki</a>
+  <button class="nav-btn primary" id="btnNext" onclick="next()" aria-label="Go to next step">Next &#8594;</button>
+</nav>
+<script>
+var S=[
+{id:'s1',stage:'setup',title:'Welcome',ki:'[Kamaurao]',desc:'This guide shows you how to re-register, step by step. There are 3 stages.'},
+{id:'s2',stage:'setup',title:'Go to business.gov.ki',ki:'[Kauka business.gov.ki]',desc:'Open the website. First, you need to create an account to re-register.'},
+{id:'s3',stage:'setup',title:'Create your account',ki:'[Karaoa am account]',desc:'Fill in your details, upload your photo ID, and submit. The Ministry will review and approve your account.'},
+{id:'s4',stage:'setup',title:'Get authority to file',ki:'[Karekea te authority]',desc:'Get permission to re-register your business name. The Ministry must approve this before you can continue.'},
+{id:'s5',stage:'form',title:'Go back to business.gov.ki',ki:'[Okira business.gov.ki]',desc:'Your authority is approved. Go back to business.gov.ki and tap "Re-register your business name."'},
+{id:'s5b',stage:'form',title:'Read the information page',ki:'[Wareka te rongorongo]',desc:'Read about re-registration on the information page. Your account and authority are set up. Now open the online form.'},
+{id:'s6',stage:'form',title:'Check you have everything',ki:'[Taraa bwaai aika ko kainnanoi]',desc:'Make sure you have your registration number, owner details, and photo ID.'},
+{id:'s7',stage:'form',title:'Fill in your details',ki:'[Kaonobwaia am rongorongo]',desc:'Answer the questions one section at a time. The form checks your answers as you go.'},
+{id:'s8',stage:'form',title:'Check your answers',ki:'[Taraia am kaeka]',desc:'Review everything before continuing. You can go back and fix any mistakes.'},
+{id:'s9',stage:'form',title:'Save your form',ki:'[Kawakina am form]',desc:'Your form is turned into a PDF file (a document you can save and send). Save it to your phone.'},
+{id:'s10',stage:'upload',title:'Log in and find your business',ki:'[Rin ao kakaaea am bitineti]',desc:'Log in to the registry website, find your business name, and tap the RE-REGISTER button.'},
+{id:'s11',stage:'upload',title:'Upload your form and documents',ki:'[Upload am form ao am documents]',desc:'Send your saved form and other documents (like your photo ID) to the registry from your phone.'},
+{id:'s12',stage:'upload',title:'Submit your application',ki:'[Submit am application]',desc:'Check your files are correct, tap SUBMIT to send them, then tap CHECKOUT. There is nothing to pay.'},
+{id:'s13',stage:'upload',title:'Done!',ki:'[E a tia!]',desc:'Your form has been sent to the registry. They will check it and email you.'}
+];
+var stageLabels={setup:'Stage 1: Get set up',form:'Stage 2: Complete the form',upload:'Stage 3: Upload and submit'};
+var cur=0;
+function render(i){
+  var wp=document.getElementById('welcomePanel');
+  var ph=document.getElementById('phoneFrame');
+  if(i===0){wp.style.display='block';wp.classList.add('active');ph.style.display='none';}
+  else{wp.style.display='none';wp.classList.remove('active');ph.style.display='block';}
+  cur=i;
+  for(var j=0;j<S.length;j++){document.getElementById(S[j].id).style.display='none';document.getElementById(S[j].id).classList.remove('active');}
+  var el=document.getElementById(S[i].id);
+  el.style.display='block';el.classList.add('active');
+  var row=document.getElementById('progRow');
+  row.innerHTML='';
+  for(var j=0;j<S.length;j++){var p=document.createElement('div');p.className='pip'+(j<i?' done':j===i?' active':'');row.appendChild(p);}
+  var se=document.getElementById('stepStage');
+  se.textContent=stageLabels[S[i].stage];
+  se.className='step-stage '+S[i].stage;
+  document.getElementById('stepNum').textContent='Step '+(i+1)+' of '+S.length;
+  document.getElementById('stepTitle').textContent=S[i].title;
+  document.getElementById('stepTitleKi').textContent=S[i].ki;
+  document.getElementById('stepDesc').textContent=S[i].desc;
+  document.getElementById('btnBack').disabled=(i===0);
+  document.getElementById('btnNext').disabled=(i===S.length-1);
+  document.getElementById('btnNext').textContent=i===S.length-1?'Done \u2713':'Next \u2192';
+}
+function next(){if(cur<S.length-1)render(cur+1);}
+function back(){if(cur>0)render(cur-1);}
+render(0);
+</script>
+</body>
+</html>
