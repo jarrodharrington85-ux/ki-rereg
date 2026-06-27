@@ -465,14 +465,14 @@
         </div>`;
 
       const btn = item.querySelector('button');
-      const body = item.querySelector('div > div:last-child')?.parentElement;
+      const bodyWrap = item.querySelector('button + div');
       const svg = item.querySelector('svg');
-      if (body) {
+      if (bodyWrap) {
         btn.addEventListener('click', () => {
           const open = btn.getAttribute('aria-expanded') === 'true';
           btn.setAttribute('aria-expanded', String(!open));
           svg.style.transform = open ? '' : 'rotate(180deg)';
-          body.style.maxHeight = open ? '0' : body.scrollHeight + 16 + 'px';
+          bodyWrap.style.maxHeight = open ? '0' : bodyWrap.scrollHeight + 'px';
         });
       }
       list.appendChild(item);
@@ -503,9 +503,12 @@
     hide($('#plan-section'));
     hide($('#after-section'));
     hide($('#restart-row'));
-    // Restore generic heading
-    $('#plan-heading').textContent = 'Get your re-registration plan';
-    $('#plan-heading').style.cssText = 'font-size:20px;font-weight:600;color:var(--text-mid);line-height:1.25;margin-bottom:14px';
+    // Restore external heading and clear internal title
+    const heading = $('#plan-heading');
+    heading.textContent = 'Get your re-registration plan';
+    heading.style.cssText = 'font-size:20px;font-weight:600;color:var(--text-mid);line-height:1.25;margin-bottom:14px';
+    show(heading);
+    $('#plan-title').textContent = '';
   }
 
   /* ── Wizard helpers ── */
@@ -677,10 +680,11 @@
     const pName = S.personName.trim();
     const steps = getSteps();
 
-    // Update page heading to personalised title
-    const heading = $('#plan-heading');
-    heading.textContent = ent ? `Your plan for ${ent}` : 'Your re-registration plan';
-    heading.style.cssText = 'font-size:22px;font-weight:800;color:var(--green-banner);line-height:1.15;margin-bottom:4px';
+    // Hide the external heading (it sits above the wizard, gets scrolled off)
+    hide($('#plan-heading'));
+
+    // Populate the title INSIDE plan-section so it scrolls with the plan
+    $('#plan-title').textContent = ent ? `Your plan for ${ent}` : 'Your re-registration plan';
 
     // Plan meta
     const metaParts = [e.label, `Form ${e.form}`, 'Free'];
